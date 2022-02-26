@@ -21,6 +21,7 @@ Included
 - [qb-target](https://github.com/BerkieBb/qb-target)
 - [qb-menu](https://github.com/qbcore-framework/qb-menu)
 - [qb-smallresources](https://github.com/qbcore-framework/qb-smallresources)
+- [PolyZone](https://github.com/mkafrin/PolyZone)
 
 ## Items (qb-core/shared/item.lua)
 ```

@@ -21,5 +21,5 @@ shared_scripts {'config.lua'}
 dependencies {
     'PolyZone',
     'qb-menu',
-    'qb-target',
+    'qb-target'
 }

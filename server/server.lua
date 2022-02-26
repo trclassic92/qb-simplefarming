@@ -353,7 +353,7 @@ end)
 QBCore.Functions.CreateCallback('qb-simplefarming:tomatoescheck', function(source, cb)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player ~= nil then
-        if Player.Functions.GetItemByName("tomatoe") ~= nil then
+        if Player.Functions.GetItemByName("tomato") ~= nil then
             cb(true)
         else
             cb(false)
@@ -454,15 +454,15 @@ end)
 RegisterServerEvent('qb-simplefarming:tomatoespicking', function()
     local Player = QBCore.Functions.GetPlayer(source)
     local tompicking = math.random(1,3)
-    Player.Functions.AddItem('tomatoe', tompicking)
-    TriggerClientEvent("qb-inventory:client:ItemBox", source, QBCore.Shared.Items['tomatoe'], "add")
+    Player.Functions.AddItem('tomato', tompicking)
+    TriggerClientEvent("qb-inventory:client:ItemBox", source, QBCore.Shared.Items['tomato'], "add")
     TriggerClientEvent('QBCore:Notify', source, "Grabbed " ..tompicking.. " Red Tomatoes")
 end)
 
 RegisterServerEvent('qb-simplefarming:tomatoesprocessing', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
-    local tom = Player.Functions.GetItemByName('tomatoe')
+    local tom = Player.Functions.GetItemByName('tomato')
     if not tom then 
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_tomatoes'])
         return false
@@ -475,12 +475,12 @@ RegisterServerEvent('qb-simplefarming:tomatoesprocessing', function()
       return false
     end
     
-    if not Player.Functions.RemoveItem('tomatoe', amount) then 
+    if not Player.Functions.RemoveItem('tomato', amount) then 
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
         return false 
     end
 
-    TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['tomatoe'], "remove")
+    TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['tomato'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['tomatoes_processing'])
     local amount = Config.TomatoesProcessed
     Wait(750)
@@ -787,7 +787,7 @@ QBCore.Functions.CreateUseableItem("hotsauce", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("tomatoe", function(source, item)
+QBCore.Functions.CreateUseableItem("tomato", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then

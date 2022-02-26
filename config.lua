@@ -45,8 +45,8 @@ Config.FoodPrice = 5                                    --  Pig Farm Food Price
 PigFarmer = vector4(2166.11, 5003.84, 40.39, 312.56)    -- Ped Location
 PigFarmerTargetZone = vector3(2166.11, 5003.84, 40.39)  -- QB-Target location
 PigFarmerTzHeading = 305                                -- QB-Target Heading
-PigFarmerMinZ = 40					-- QB-Target MinZ
-PigFarmerMaxZ = 42					-- QB-Target MaxZ
+PigFarmerMinZ = 40				                    	-- QB-Target MinZ
+PigFarmerMaxZ = 42				                    	-- QB-Target MaxZ
 
 -- Processing Items
 Config.AppleProcessing = 3                              -- Trading Amount
@@ -142,7 +142,7 @@ Config.Sell = {
     ["hotsauce"] = {
         ["price"] = math.random(25, 35)
     },
-    ["tomatoe"] = {
+    ["tomato"] = {
         ["price"] = math.random(25, 35)
     },
     ["tomatoepaste"] = {

@@ -17,3 +17,9 @@ client_scripts {
 server_scripts {'server/*.lua'}
 
 shared_scripts {'config.lua'}
+
+dependencies {
+    'PolyZone',
+    'qb-menu',
+    'qb-target',
+}

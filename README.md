@@ -89,3 +89,6 @@ Included
 ![Preview Screenshot](https://forum.cfx.re/uploads/default/original/4X/f/d/5/fd5cac4e3b35cbb008ba53d024f98153954e6887.jpeg)
 ![Preview Screenshot](https://forum.cfx.re/uploads/default/original/4X/b/7/4/b746f9ab921c1ecda7839f20881bc69a41abadd8.jpeg)
 ![Preview Screenshot](https://forum.cfx.re/uploads/default/original/4X/a/f/6/af673ae283e9baaddbfb9c10460b1924fa22ccde.jpeg)
+
+## Discord
+- [Join Discord](https://discord.gg/zRCdhENsHG)

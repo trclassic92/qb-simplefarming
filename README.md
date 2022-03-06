@@ -15,6 +15,7 @@ Included
 - The ability to change notification language
 - Icons (100x100)
 - Map (ymap)
+- Toggle Blips Option (Config)
 
 ## Dependencies
 - [qb-core](https://github.com/qbcore-framework/qb-core)

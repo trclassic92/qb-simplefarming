@@ -1085,7 +1085,6 @@ else
       end)
     end
   end)
-
 end
 
 RegisterNetEvent('BigGrapeField', function()

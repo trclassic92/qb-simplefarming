@@ -2146,8 +2146,8 @@ exports['qb-target']:AddBoxZone("sellerped", Seller.targetZone, 1, 1, {
 	name = "seller",
 	heading = Seller.targetHeading,
 	debugPoly = false,
-	minZ = 4,
-	maxZ = 7,
+	minZ = Seller.minZ,
+	maxZ = Seller.maxZ,
 }, {
 	options = {
     {

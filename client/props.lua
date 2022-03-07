@@ -16,19 +16,19 @@ end)
 CreateThread(function()
     RequestModel( GetHashKey( "a_c_cow" ) )
     while ( not HasModelLoaded( GetHashKey( "a_c_cow" ) ) ) do
-        Citizen.Wait( 1 )
+        Citizen.Wait(1)
     end
     RequestModel( GetHashKey( "a_c_pig" ) )
     while ( not HasModelLoaded( GetHashKey( "a_c_pig") ) ) do
-        Citizen.Wait( 1 )
+        Citizen.Wait(1)
     end
     RequestModel( GetHashKey( "a_m_m_farmer_01" ) )
     while ( not HasModelLoaded( GetHashKey( "a_m_m_farmer_01") ) ) do
-        Citizen.Wait( 1 )
+        Citizen.Wait(1)
     end
     RequestModel( GetHashKey( "a_m_m_farmer_01" ) )
     while ( not HasModelLoaded( GetHashKey( "a_m_m_farmer_01") ) ) do
-        Citizen.Wait( 1 )
+        Citizen.Wait(1)
     end
     pedcow = CreatePed(1, 0xFCFA9E1E, 434.06, 6472.8, 28.77, 77.31, false, true) 
     pedcow1 = CreatePed(1, 0xFCFA9E1E, 425.61, 6463.31, 28.78, 31.94, false, true)

@@ -1,6 +1,6 @@
 Config = Config or {}
 
-Config.UseBlips = false                                 -- True / false option for toggling farm blips
+Config.UseBlips = true                                 -- True / false option for toggling farm blips
 
 -- Blips
 FoodProcessor = {

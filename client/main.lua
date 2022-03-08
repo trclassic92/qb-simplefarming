@@ -7,32 +7,32 @@ if Config.UseBlips then
   CreateThread(function()
     for k, v in pairs(AppleField) do
       local AppleFieldBlip = AddBlipForCoord(AppleField[k].BlipCoord)
-          SetBlipSprite(AppleFieldBlip, AppleField[k].Blip)
-          SetBlipAsShortRange(AppleFieldBlip, true)
-          SetBlipScale(AppleFieldBlip, 0.8)
-          SetBlipColour(AppleFieldBlip, AppleField[k].BlipColor)
-          BeginTextCommandSetBlipName("STRING")
-          AddTextComponentString(AppleField[k].label)
-          EndTextCommandSetBlipName(AppleFieldBlip)
+        SetBlipSprite(AppleFieldBlip, AppleField[k].Blip)
+        SetBlipAsShortRange(AppleFieldBlip, true)
+        SetBlipScale(AppleFieldBlip, 0.8)
+        SetBlipColour(AppleFieldBlip, AppleField[k].BlipColor)
+        BeginTextCommandSetBlipName("STRING")
+        AddTextComponentString(AppleField[k].label)
+        EndTextCommandSetBlipName(AppleFieldBlip)
 
         local ApplePicking = PolyZone:Create(AppleField[k].zones, {
-            name = AppleField[k].label,
-            minZ = AppleField[k].minz,
-            maxZ = AppleField[k].maxz,
-            debugPoly = false
+          name = AppleField[k].label,
+          minZ = AppleField[k].minz,
+          maxZ = AppleField[k].maxz,
+          debugPoly = false
         })
 
-        ApplePicking:onPlayerInOut(function(isPointInside)
-            if isPointInside then
-              inZone = true
-              TriggerEvent('AppleTrees')
-            else
-              for k, v in pairs(ATreeZones) do 
-                exports['qb-target']:RemoveZone(v.Name)
-                inZone = false
-              end
-            end
-        end)
+      ApplePicking:onPlayerInOut(function(isPointInside)
+        if isPointInside then
+          inZone = true
+          TriggerEvent('AppleTrees')
+        else
+          for k, v in pairs(ATreeZones) do 
+            exports['qb-target']:RemoveZone(v.Name)
+            inZone = false
+          end
+        end
+      end)
     end
   end)
 else
@@ -565,7 +565,7 @@ RegisterNetEvent('qb-simplefarming:pumpkin', function()
 end)
 
 -- Corn --
-if Config.UseTarget then
+if Config.UseBlips then
   CreateThread(function()
     for k, v in pairs(CornFields) do
       local CornFieldBlips = AddBlipForCoord(CornFields[k].BlipCoord)
@@ -578,10 +578,10 @@ if Config.UseTarget then
         EndTextCommandSetBlipName(CornFieldBlips)
 
       local CornFieldLocation = PolyZone:Create(CornFields[k].zones, {
-          name = CornFields[k].label,
-          minZ = CornFields[k].minz,
-          maxZ = CornFields[k].maxz,
-          debugPoly = false
+        name = CornFields[k].label,
+        minZ = CornFields[k].minz,
+        maxZ = CornFields[k].maxz,
+        debugPoly = false
       })
 
       CornFieldLocation:onPlayerInOut(function(isPointInside)
@@ -689,7 +689,7 @@ end)
 
 
 -- Gradens --
-if Config.UseTarget then
+if Config.UseBlips then
   CreateThread(function()
     for k, v in pairs(Garden) do
       local GardenBlips = AddBlipForCoord(Garden[k].BlipCoord)
@@ -701,11 +701,11 @@ if Config.UseTarget then
         AddTextComponentString(Garden[k].label)
         EndTextCommandSetBlipName(GardenBlips)
 
-        local GardenLocation = PolyZone:Create(Garden[k].zones, {
-          name = Garden[k].label,
-          minZ = Garden[k].minz,
-          maxZ = Garden[k].maxz,
-          debugPoly = false
+      local GardenLocation = PolyZone:Create(Garden[k].zones, {
+        name = Garden[k].label,
+        minZ = Garden[k].minz,
+        maxZ = Garden[k].maxz,
+        debugPoly = false
       })
 
       GardenLocation:onPlayerInOut(function(isPointInside)
@@ -1000,7 +1000,7 @@ end)
 
 
 -- Big Garden 
-if Config.UseTarget then
+if Config.UseBlips then
   CreateThread(function()
     for k, v in pairs(BigGarden) do
     local BigGardenBlips = AddBlipForCoord(BigGarden[k].BlipCoord)

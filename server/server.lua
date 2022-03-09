@@ -491,6 +491,17 @@ end)
 
 -- Pig
 
+QBCore.Functions.CreateCallback('qb-simplefarming:soybeancheck', function(source, cb)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if Player ~= nil then
+        if Player.Functions.GetItemByName("soybeans") ~= nil then
+            cb(true)
+        else
+            cb(false)
+        end
+    end
+end)
+
 QBCore.Functions.CreateCallback('qb-simplefarming:rawbacon', function(source, cb)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player ~= nil then
@@ -662,12 +673,29 @@ RegisterServerEvent('qb-simplefarming:pigfood', function()
     TriggerClientEvent('QBCore:Notify', source, "The farmer gave you " ..pigfoodamount.. " of Soy Beans", "success")
 end)
 
-RegisterNetEvent('qb-simplefarming:feedingpiglit', function()
-    local feedpigamount = math.random(3,6)
-    local Player = QBCore.Functions.GetPlayer(source)
-    Player.Functions.RemoveItem('soybeans', feedpigamount)
-    TriggerClientEvent("qb-inventory:client:ItemBox", source, QBCore.Shared.Items['soybeans'], "remove")
-    TriggerClientEvent('QBCore:Notify', source, "You feed the pig " ..feedpigamount.. " handfulls of soybeans", "success")
+RegisterServerEvent('qb-simplefarming:feedingpiglit', function()
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(tonumber(source))
+    local soybean = Player.Functions.GetItemByName('soybeans')
+    if not soybean then 
+        TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_soybean'])
+        return false
+    end
+
+    local amount = soybean.amount
+    if amount >= 1 then
+        amount = 1
+    else
+      return false
+    end
+    
+    if not Player.Functions.RemoveItem('soybeans', amount) then 
+        TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error.soybean'])
+        return false 
+    end
+    TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['soybeans'], "remove")
+    TriggerClientEvent('QBCore:Notify', source, Config.Alerts['stress'])
+    TriggerClientEvent('qb-simplefarming:relievestress', source)
 end)
 
 RegisterNetEvent('qb-simplefarming:slayreward', function()

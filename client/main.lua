@@ -15,12 +15,12 @@ if Config.UseBlips then
         AddTextComponentString(AppleField[k].label)
         EndTextCommandSetBlipName(AppleFieldBlip)
 
-        local ApplePicking = PolyZone:Create(AppleField[k].zones, {
-          name = AppleField[k].label,
-          minZ = AppleField[k].minz,
-          maxZ = AppleField[k].maxz,
-          debugPoly = false
-        })
+      local ApplePicking = PolyZone:Create(AppleField[k].zones, {
+        name = AppleField[k].label,
+        minZ = AppleField[k].minz,
+        maxZ = AppleField[k].maxz,
+        debugPoly = false
+      })
 
       ApplePicking:onPlayerInOut(function(isPointInside)
         if isPointInside then
@@ -1374,23 +1374,31 @@ RegisterNetEvent('qb-simplefarming:petpiggy', function()
 end)
 
 RegisterNetEvent('qb-simplefarming:feedpig', function ()
-  TriggerEvent('animations:client:EmoteCommandStart', {"Bumbin"})
-  QBCore.Functions.Progressbar("feeding_pig", "Feeding Pig", 5000, false, true, { -- 5 Seconds
-      disableMovement = true,
-      disableCarMovement = true,
-      disableMouse = false,
-      disableCombat = true,
-      disableInventory = true,
-  }, {}, {}, {}, function()
-      TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-      TriggerServerEvent('hud:server:RelieveStress', math.random(2, 5))
-      TriggerServerEvent("qb-simplefarming:feedingpiglit")
-      Wait(2000)
-      QBCore.Functions.Notify("Your Stress Was Relieved")
-  end, function() 
-      ClearPedTasks(PlayerPedId())
-      QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
+  QBCore.Functions.TriggerCallback('qb-simplefarming:soybeancheck', function(soybeans)
+    if soybeans then
+      TriggerEvent('animations:client:EmoteCommandStart', {"Bumbin"})
+      QBCore.Functions.Progressbar("feeding_pig", "Feeding Pig", 5000, false, true, { -- 5 Seconds
+          disableMovement = true,
+          disableCarMovement = true,
+          disableMouse = false,
+          disableCombat = true,
+          disableInventory = true,
+      }, {}, {}, {}, function()
+          TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+          TriggerServerEvent("qb-simplefarming:feedingpiglit")
+          Wait(2000)
+      end, function() 
+          ClearPedTasks(PlayerPedId())
+          QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
+      end)
+    elseif not soybeans then
+      QBCore.Functions.Notify(Config.Alerts['error.soybean'], "error", 3000)
+    end
   end)
+end)
+
+RegisterNetEvent('qb-simplefarming:relievestress', function ()
+  TriggerServerEvent('hud:server:RelieveStress', math.random(2, 5))
 end)
 
 RegisterNetEvent('qb-simplefarming:baconprocessing', function()

@@ -261,4 +261,7 @@ Config.Alerts = {
 
     ['killing_pig'] = 'Slaughtering Pig',
     ['pig_reward'] = 'Received items for killing the pig',
+
+    ['error.soybean'] = 'You don\'t have any soybeans to feed the pigs',
+    ['stress'] = 'Your Stress Was Relieved',
 }

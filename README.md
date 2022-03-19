@@ -93,3 +93,6 @@ Included
 
 ## Discord
 - [Join Discord](https://discord.gg/zRCdhENsHG)
+
+## Support
+- [Ko-fi Link](https://ko-fi.com/trclassic)

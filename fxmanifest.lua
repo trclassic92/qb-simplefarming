@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'TRClassic#0001'
 description 'Farming script for QBCore'
-version '1.0.0'
+version '1.1.0'
 
 client_scripts {
     '@PolyZone/client.lua',

@@ -2,6 +2,9 @@ Config = Config or {}
 
 Config.UseBlips = true                                 -- True / false option for toggling farm blips
 
+Config.PedModel = "a_m_m_farmer_01"                    -- Ped model  https://wiki.rage.mp/index.php?title=Peds
+Config.PedHash = 0x94562DD7                            -- Hash numbers for ped model
+
 -- Blips
 FoodProcessor = {
     targetZone = vector3(2853.98, 4557.02, 46.15),      -- qb-target vector

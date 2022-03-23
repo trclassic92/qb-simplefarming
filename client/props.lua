@@ -3,12 +3,14 @@ local FoodMan = FoodProcessor.coords
 local DairyMan = DairyProcessor.coords
 local PigMan = PigFarmer
 local SellerMan = Seller.coords
+local PedModel = Config.PedModel
+local PedHash = Config.PedHash
 
 CreateThread(function()
     while (true) do
         ClearAreaOfPeds(431.28, 6467.48, 28.77, 17.5, 1)
         ClearAreaOfPeds(2162.89, 4982.4, 41.29, 35.0, 1)
-        Citizen.Wait(0)
+        Wait(0)
     end
 end)
 
@@ -16,19 +18,15 @@ end)
 CreateThread(function()
     RequestModel( GetHashKey( "a_c_cow" ) )
     while ( not HasModelLoaded( GetHashKey( "a_c_cow" ) ) ) do
-        Citizen.Wait(1)
+        Wait(1)
     end
     RequestModel( GetHashKey( "a_c_pig" ) )
-    while ( not HasModelLoaded( GetHashKey( "a_c_pig") ) ) do
-        Citizen.Wait(1)
+    while ( not HasModelLoaded( GetHashKey( "a_c_pig" ) ) ) do
+        Wait(1)
     end
-    RequestModel( GetHashKey( "a_m_m_farmer_01" ) )
-    while ( not HasModelLoaded( GetHashKey( "a_m_m_farmer_01") ) ) do
-        Citizen.Wait(1)
-    end
-    RequestModel( GetHashKey( "a_m_m_farmer_01" ) )
-    while ( not HasModelLoaded( GetHashKey( "a_m_m_farmer_01") ) ) do
-        Citizen.Wait(1)
+    RequestModel( GetHashKey( PedModel ) )
+    while ( not HasModelLoaded( GetHashKey( PedModel ) ) ) do
+        Wait(1)
     end
     pedcow = CreatePed(1, 0xFCFA9E1E, 434.06, 6472.8, 28.77, 77.31, false, true) 
     pedcow1 = CreatePed(1, 0xFCFA9E1E, 425.61, 6463.31, 28.78, 31.94, false, true)
@@ -50,10 +48,10 @@ CreateThread(function()
     pedpig14 = CreatePed(1, 0xB11BAB56, 2181.43, 4954.0, 41.33, 123.76, false, true)
     pedpig15 = CreatePed(1, 0xB11BAB56, 2188.21, 4960.37, 41.32, 359.98, false, true)
     pedpig16 = CreatePed(1, 0xB11BAB56, 2194.04, 4964.97, 41.31, 65.12, false, true)
-    pedfarmer1 = CreatePed(1, 0x94562DD7, PigMan, false, true)
-    pedfarmer2 = CreatePed(1, 0x94562DD7, DairyMan, false, true)
-    pedfarmer3 = CreatePed(1, 0x94562DD7, FoodMan, false, true)
-    pedfarmer4 = CreatePed(1, 0x94562DD7, SellerMan, false, true)
+    pedfarmer1 = CreatePed(1, PedHash, PigMan, false, true)
+    pedfarmer2 = CreatePed(1, PedHash, DairyMan, false, true)
+    pedfarmer3 = CreatePed(1, PedHash, FoodMan, false, true)
+    pedfarmer4 = CreatePed(1, PedHash, SellerMan, false, true)
     SetEntityInvincible(pedfarmer1, true)
     SetBlockingOfNonTemporaryEvents(pedfarmer1, true)
     FreezeEntityPosition(pedfarmer1, true)

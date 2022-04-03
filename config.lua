@@ -150,7 +150,7 @@ Config.Sell = {
     ["tomato"] = {
         ["price"] = math.random(25, 35)
     },
-    ["tomatoepaste"] = {
+    ["tomatopaste"] = {
         ["price"] = math.random(25, 35)
     },
     ["raw_bacon"] = {

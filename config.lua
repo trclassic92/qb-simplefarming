@@ -242,7 +242,7 @@ Config.Alerts = {
     ['tomatoes_picking'] = 'Picking Tomatoes',
     ['tomatoes_progressbar'] = 'Smashing Tomatoes',
     ['tomatoes_processing'] = 'Squeezed ' ..Config.TomatoesProcessing.. ' tomatoes',
-    ['tomatoes_processed'] = 'Made ' ..Config.TomatoesProcessed.. ' jars of tomatoepaste',
+    ['tomatoes_processed'] = 'Made ' ..Config.TomatoesProcessed.. ' jars of tomatopaste',
     ['error_tomatoes'] = 'Hm, It seems like you don\'t have any tomatoes to process... Come back later!',
 
 

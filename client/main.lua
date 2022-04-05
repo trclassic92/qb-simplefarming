@@ -2061,7 +2061,7 @@ RegisterNetEvent('qb-simplefarming:menuprocessor', function(data)
         }
     },
     {
-        header = 'Make TomatoePaste',
+        header = 'Make TomatoPaste',
         params = {
             event = 'qb-simplefarming:makingragu',
         }

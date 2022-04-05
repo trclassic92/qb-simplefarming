@@ -496,8 +496,8 @@ RegisterServerEvent('qb-simplefarming:tomatoesprocessing', function()
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['tomatoes_processing'])
     local amount = Config.TomatoesProcessed
     Wait(750)
-    Player.Functions.AddItem('tomatoepaste', amount)
-    TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['tomatoepaste'], "add")
+    Player.Functions.AddItem('tomatopaste', amount)
+    TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['tomatopaste'], "add")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['tomatoes_processed'])
 end)
 
@@ -837,7 +837,7 @@ QBCore.Functions.CreateUseableItem("tomato", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("tomatoepaste", function(source, item)
+QBCore.Functions.CreateUseableItem("tomatopaste", function(source, item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then

@@ -819,7 +819,7 @@ RegisterNetEvent('qb-simplefarming:chillfield', function()
     disableCombat = true,
     disableInventory = true,
   }, {}, {}, {}, function()
-    TriggerEvent('animations:client:EmoteCommandStart', {"Mechanic4"})
+    TriggerEvent('animations:client:EmoteCommandStart', {"C"})
     TriggerServerEvent('qb-simplefarming:chypepperpicking')
   end, function() 
     ClearPedTasks(PlayerPedId())
@@ -836,7 +836,7 @@ RegisterNetEvent('qb-simplefarming:tomatoefields', function()
     disableCombat = true,
     disableInventory = true,
   }, {}, {}, {}, function()
-    TriggerEvent('animations:client:EmoteCommandStart', {"Mechanic4"})
+    TriggerEvent('animations:client:EmoteCommandStart', {"C"})
     TriggerServerEvent('qb-simplefarming:tomatoespicking')
   end, function() 
     ClearPedTasks(PlayerPedId())

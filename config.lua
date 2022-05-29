@@ -183,7 +183,7 @@ Config.Sell = {
     ["cow_leather"] = {
         ["price"] = math.random(25, 35)
     }
-    
+
 }
 
 

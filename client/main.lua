@@ -27,7 +27,7 @@ if Config.UseBlips then
           inZone = true
           TriggerEvent('AppleTrees')
         else
-          for k, v in pairs(ATreeZones) do 
+          for k, v in pairs(ATreeZones) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -50,7 +50,7 @@ else
           inZone = true
           TriggerEvent('AppleTrees')
         else
-          for k, v in pairs(ATreeZones) do 
+          for k, v in pairs(ATreeZones) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -69,10 +69,10 @@ RegisterNetEvent('qb-simplefarming:processapples', function()
       disableCarMovement = true,
       disableMouse = false,
       disableCombat = true,
-      }, {}, {}, {}, function()    
+      }, {}, {}, {}, function()
       TriggerEvent('animations:client:EmoteCommandStart', {"c"})
         TriggerServerEvent("qb-simplefarming:appleprocess")
-      end, function() 
+      end, function()
         QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
       end)
     elseif not apples then
@@ -91,22 +91,22 @@ RegisterNetEvent('qb-simplefarming:appletree', function()
     animDict = 'missmechanic',
     anim = 'work_base',
     flags = 16,
-    }, {}, {}, function() 
+    }, {}, {}, function()
         TriggerServerEvent('qb-simplefarming:applepicking')
-    end, function() 
+    end, function()
     QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
   end)
 end)
 
 
 CreateThread(function()
-  for k, v in pairs(ATreeZones) do 
+  for k, v in pairs(ATreeZones) do
   end
 end)
 
 
 RegisterNetEvent('AppleTrees', function()
-  for k, v in pairs(ATreeZones) do 
+  for k, v in pairs(ATreeZones) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), 1, 1, {
       name=v.Name,
       heading= v.heading,
@@ -157,19 +157,19 @@ if Config.UseBlips then
           TriggerEvent('AnimalFraming3')
           TriggerEvent('AnimalFraming4')
         else
-          for k, v in pairs(CowFarming1) do 
+          for k, v in pairs(CowFarming1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(CowFarming2) do 
+          for k, v in pairs(CowFarming2) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(CowFarming3) do 
+          for k, v in pairs(CowFarming3) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(CowFarming4) do 
+          for k, v in pairs(CowFarming4) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -195,19 +195,19 @@ else
             TriggerEvent('AnimalFraming3')
             TriggerEvent('AnimalFraming4')
           else
-            for k, v in pairs(CowFarming1) do 
+            for k, v in pairs(CowFarming1) do
               exports['qb-target']:RemoveZone(v.Name)
               inZone = false
             end
-            for k, v in pairs(CowFarming2) do 
+            for k, v in pairs(CowFarming2) do
               exports['qb-target']:RemoveZone(v.Name)
               inZone = false
             end
-            for k, v in pairs(CowFarming3) do 
+            for k, v in pairs(CowFarming3) do
               exports['qb-target']:RemoveZone(v.Name)
               inZone = false
             end
-            for k, v in pairs(CowFarming4) do 
+            for k, v in pairs(CowFarming4) do
               exports['qb-target']:RemoveZone(v.Name)
               inZone = false
             end
@@ -226,10 +226,10 @@ RegisterNetEvent('qb-simplefarming:beefprocessing', function()
       disableCarMovement = true,
       disableMouse = false,
       disableCombat = true,
-      }, {}, {}, {}, function()    
+      }, {}, {}, {}, function()
           TriggerEvent('animations:client:EmoteCommandStart', {"c"})
           TriggerServerEvent("qb-simplefarming:beefprocess")
-      end, function() 
+      end, function()
         QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
       end)
     elseif not rawbeef then
@@ -247,10 +247,10 @@ RegisterNetEvent('qb-simplefarming:diaryprocessor', function()
       disableCarMovement = true,
       disableMouse = false,
       disableCombat = true,
-    }, {}, {}, {}, function()    
+    }, {}, {}, {}, function()
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
         TriggerServerEvent("qb-simplefarming:diarymilk")
-    end, function() 
+    end, function()
       QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
     end)
   elseif not milkbucket then
@@ -273,10 +273,10 @@ RegisterNetEvent('qb-simplefarming:milkcow', function()
       disableMouse = false,
       disableCombat = true,
     }, {
-    }, {}, {}, function() 
+    }, {}, {}, function()
         ClearPedTasks(PlayerPedId())
         TriggerServerEvent("qb-simplefarming:cowmilking")
-    end, function() 
+    end, function()
       QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
     end)
     elseif not emptybucket then
@@ -287,10 +287,10 @@ RegisterNetEvent('qb-simplefarming:milkcow', function()
 end)
 
 RegisterNetEvent('qb-getcowbucket', function()
-	local ped = PlayerPedId()    
+	local ped = PlayerPedId()
   RequestAnimDict("anim@heists@box_carry@")
 	Citizen.Wait(100)
-  milkprop = CreateObject(GetHashKey("prop_old_churn_01"), 0, 0, 0, true, true, true)        
+  milkprop = CreateObject(GetHashKey("prop_old_churn_01"), 0, 0, 0, true, true, true)
   AttachEntityToEntity(milkprop, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), 60309), 0.12, 0, 0.30, -145.0, 100.0, 0.0, true, true, false, true, 1, true)
   TaskPlayAnim(PlayerPedId(), "anim@heists@box_carry@", "idle", 2.0, 2.0, 2500, 51, 0, false, false, false)
   Citizen.Wait(2500)
@@ -301,7 +301,7 @@ RegisterNetEvent('qb-getcowbucket', function()
 end)
 
 RegisterNetEvent('AnimalFraming', function()
-  for k, v in pairs(CowFarming1) do 
+  for k, v in pairs(CowFarming1) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -313,7 +313,7 @@ RegisterNetEvent('AnimalFraming', function()
         {
           type = "client",
           event = "qb-simplefarming:milkcow",
-          icon = "fa fa-tint",  
+          icon = "fa fa-tint",
           label = "Milk Cow",
         },
         {
@@ -324,12 +324,12 @@ RegisterNetEvent('AnimalFraming', function()
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
 RegisterNetEvent('AnimalFraming2', function()
-  for k, v in pairs(CowFarming2) do 
+  for k, v in pairs(CowFarming2) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -341,7 +341,7 @@ RegisterNetEvent('AnimalFraming2', function()
         {
           type = "client",
           event = "qb-simplefarming:milkcow",
-          icon = "fa fa-tint",  
+          icon = "fa fa-tint",
           label = "Milk Cow",
         },
         {
@@ -352,13 +352,13 @@ RegisterNetEvent('AnimalFraming2', function()
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
 
 RegisterNetEvent('AnimalFraming3', function()
-  for k, v in pairs(CowFarming3) do 
+  for k, v in pairs(CowFarming3) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -370,7 +370,7 @@ RegisterNetEvent('AnimalFraming3', function()
         {
           type = "client",
           event = "qb-simplefarming:milkcow",
-          icon = "fa fa-tint",  
+          icon = "fa fa-tint",
           label = "Milk Cow",
         },
         {
@@ -381,13 +381,13 @@ RegisterNetEvent('AnimalFraming3', function()
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
 
 RegisterNetEvent('AnimalFraming4', function()
-  for k, v in pairs(CowFarming4) do 
+  for k, v in pairs(CowFarming4) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -399,7 +399,7 @@ RegisterNetEvent('AnimalFraming4', function()
         {
           type = "client",
           event = "qb-simplefarming:milkcow",
-          icon = "fa fa-tint",  
+          icon = "fa fa-tint",
           label = "Milk Cow",
         },
         {
@@ -410,7 +410,7 @@ RegisterNetEvent('AnimalFraming4', function()
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
@@ -430,7 +430,7 @@ exports['qb-target']:AddBoxZone("GetCowBucket", vector3(419.13, 6470.74, 28.82),
         label = "Grab A Bucket",
       },
     },
-  distance = 1.2  
+  distance = 1.2
 })
 
 
@@ -459,7 +459,7 @@ if Config.UseBlips then
           inZone = true
           TriggerEvent('qb-simplefarming:pumpkin')
         else
-          for k, v in pairs(PumpkinFarming1) do 
+          for k, v in pairs(PumpkinFarming1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -482,7 +482,7 @@ else
           inZone = true
           TriggerEvent('qb-simplefarming:pumpkin')
         else
-          for k, v in pairs(PumpkinFarming1) do 
+          for k, v in pairs(PumpkinFarming1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -507,7 +507,7 @@ RegisterNetEvent('qb-simplefarming:pumpkinfarming', function()
       ClearPedTasks(PlayerPedId())
       RequestAnimDict("anim@heists@box_carry@")
       Citizen.Wait(100)
-      pumpkinprop = CreateObject(GetHashKey("prop_veg_crop_03_pump"), 0, 0, 0, true, true, true)        
+      pumpkinprop = CreateObject(GetHashKey("prop_veg_crop_03_pump"), 0, 0, 0, true, true, true)
       AttachEntityToEntity(pumpkinprop, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), 60309), 0.12, 0, 0.30, -145.0, 100.0, 0.0, true, true, false, true, 1, true)
       TaskPlayAnim(PlayerPedId(), "anim@heists@box_carry@", "idle", 2.0, 2.0, 2500, 51, 0, false, false, false)
       Citizen.Wait(3500)
@@ -515,7 +515,7 @@ RegisterNetEvent('qb-simplefarming:pumpkinfarming', function()
       DeleteEntity(pumpkinprop)
       DeleteObject(pumpkinprop)
       TriggerServerEvent('qb-simplefarming:pumpkinpicking')
-  end, function() 
+  end, function()
       ClearPedTasks(PlayerPedId())
       QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
   end)
@@ -530,10 +530,10 @@ RegisterNetEvent('qb-simplefarming:pumpkinpie', function()
       disableCarMovement = true,
       disableMouse = false,
       disableCombat = true,
-      }, {}, {}, {}, function()    
+      }, {}, {}, {}, function()
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
         TriggerServerEvent("qb-simplefarming:pumpkinprocessing")
-      end, function() 
+      end, function()
       QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
       end)
     elseif not pumpkin then
@@ -543,7 +543,7 @@ RegisterNetEvent('qb-simplefarming:pumpkinpie', function()
 end)
 
 RegisterNetEvent('qb-simplefarming:pumpkin', function()
-  for k, v in pairs(PumpkinFarming1) do 
+  for k, v in pairs(PumpkinFarming1) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -555,12 +555,12 @@ RegisterNetEvent('qb-simplefarming:pumpkin', function()
         {
           type = "client",
           event = "qb-simplefarming:pumpkinfarming",
-          icon = "fa fa-sign-language",  
+          icon = "fa fa-sign-language",
           label = "Pick Pumpkin",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
@@ -589,7 +589,7 @@ if Config.UseBlips then
           inZone = true
           TriggerEvent('CornField')
         else
-          for k, v in pairs(CornField1) do 
+          for k, v in pairs(CornField1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -612,7 +612,7 @@ else
           inZone = true
           TriggerEvent('CornField')
         else
-          for k, v in pairs(CornField1) do 
+          for k, v in pairs(CornField1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -635,7 +635,7 @@ RegisterNetEvent('qb-simplefarming:cornfield', function()
       flags = 16,
     }, {}, {}, function()
         TriggerServerEvent('qb-simplefarming:cornpicking')
-    end, function() 
+    end, function()
     ClearPedTasks(PlayerPedId())
     QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
   end)
@@ -651,10 +651,10 @@ RegisterNetEvent('qb-simplefarming:makecancorn', function()
       disableCarMovement = true,
       disableMouse = false,
       disableCombat = true,
-      }, {}, {}, {}, function()    
+      }, {}, {}, {}, function()
           TriggerEvent('animations:client:EmoteCommandStart', {"c"})
           TriggerServerEvent("qb-simplefarming:cornprocessing")
-      end, function() 
+      end, function()
         QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
       end)
     elseif not corncob then
@@ -665,7 +665,7 @@ end)
 
 
 RegisterNetEvent('CornField', function()
-  for k, v in pairs(CornField1) do 
+  for k, v in pairs(CornField1) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -677,12 +677,12 @@ RegisterNetEvent('CornField', function()
         {
           type = "client",
           event = "qb-simplefarming:cornfield",
-          icon = "fa fa-sign-language",  
+          icon = "fa fa-sign-language",
           label = "Grather Corn",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
@@ -716,19 +716,19 @@ if Config.UseBlips then
           TriggerEvent('ChillPeppers')
           TriggerEvent('Tomatoes')
         else
-          for k, v in pairs(GrapeFields) do 
+          for k, v in pairs(GrapeFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(GPeppersFields) do 
+          for k, v in pairs(GPeppersFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(CPeppersFields) do 
+          for k, v in pairs(CPeppersFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(TomatoesField) do 
+          for k, v in pairs(TomatoesField) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -754,19 +754,19 @@ else
           TriggerEvent('ChillPeppers')
           TriggerEvent('Tomatoes')
         else
-          for k, v in pairs(GrapeFields) do 
+          for k, v in pairs(GrapeFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(GPeppersFields) do 
+          for k, v in pairs(GPeppersFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(CPeppersFields) do 
+          for k, v in pairs(CPeppersFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(TomatoesField) do 
+          for k, v in pairs(TomatoesField) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -787,7 +787,7 @@ RegisterNetEvent('qb-simplefarming:grapefield', function()
   }, {}, {}, {}, function()
     TriggerEvent('animations:client:EmoteCommandStart', {"C"})
     TriggerServerEvent('qb-simplefarming:grapepicking')
-  end, function() 
+  end, function()
     ClearPedTasks(PlayerPedId())
     QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
   end)
@@ -804,7 +804,7 @@ RegisterNetEvent('qb-simplefarming:greenpepperfield', function()
   }, {}, {}, {}, function()
     TriggerEvent('animations:client:EmoteCommandStart', {"C"})
     TriggerServerEvent('qb-simplefarming:gpepperpicking')
-  end, function() 
+  end, function()
     ClearPedTasks(PlayerPedId())
     QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
   end)
@@ -821,7 +821,7 @@ RegisterNetEvent('qb-simplefarming:chillfield', function()
   }, {}, {}, {}, function()
     TriggerEvent('animations:client:EmoteCommandStart', {"C"})
     TriggerServerEvent('qb-simplefarming:chypepperpicking')
-  end, function() 
+  end, function()
     ClearPedTasks(PlayerPedId())
     QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
   end)
@@ -838,7 +838,7 @@ RegisterNetEvent('qb-simplefarming:tomatoefields', function()
   }, {}, {}, {}, function()
     TriggerEvent('animations:client:EmoteCommandStart', {"C"})
     TriggerServerEvent('qb-simplefarming:tomatoespicking')
-  end, function() 
+  end, function()
     ClearPedTasks(PlayerPedId())
     QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
   end)
@@ -853,10 +853,10 @@ RegisterNetEvent('qb-simplefarming:makingragu', function()
       disableCarMovement = true,
       disableMouse = false,
       disableCombat = true,
-      }, {}, {}, {}, function()    
+      }, {}, {}, {}, function()
           TriggerEvent('animations:client:EmoteCommandStart', {"c"})
           TriggerServerEvent("qb-simplefarming:tomatoesprocessing")
-      end, function() 
+      end, function()
         QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
       end)
     elseif not tomatoes then
@@ -874,10 +874,10 @@ RegisterNetEvent('qb-simplefarming:makingchillysauce', function()
       disableCarMovement = true,
       disableMouse = false,
       disableCombat = true,
-      }, {}, {}, {}, function()    
+      }, {}, {}, {}, function()
           TriggerEvent('animations:client:EmoteCommandStart', {"c"})
           TriggerServerEvent("qb-simplefarming:makinghotsauce")
-      end, function() 
+      end, function()
         QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
       end)
     elseif not hotstuff then
@@ -895,10 +895,10 @@ RegisterNetEvent('qb-simplefarming:makinggrapejuice', function()
       disableCarMovement = true,
       disableMouse = false,
       disableCombat = true,
-      }, {}, {}, {}, function()    
+      }, {}, {}, {}, function()
           TriggerEvent('animations:client:EmoteCommandStart', {"c"})
           TriggerServerEvent("qb-simplefarming:grapeprocessing")
-      end, function() 
+      end, function()
         QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
       end)
     elseif not grapes then
@@ -909,7 +909,7 @@ end)
 
 
 RegisterNetEvent('GrapeField', function()
-  for k, v in pairs(GrapeFields) do 
+  for k, v in pairs(GrapeFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -921,18 +921,18 @@ RegisterNetEvent('GrapeField', function()
           {
             type = "client",
             event = "qb-simplefarming:grapefield",
-            icon = "fa fa-sign-language",  
+            icon = "fa fa-sign-language",
             label = "Pick From Garden",
           },
         },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
 
 RegisterNetEvent('GreenPeppers', function()
-  for k, v in pairs(GPeppersFields) do 
+  for k, v in pairs(GPeppersFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -944,17 +944,17 @@ RegisterNetEvent('GreenPeppers', function()
           {
             type = "client",
             event = "qb-simplefarming:greenpepperfield",
-            icon = "fa fa-sign-language",  
+            icon = "fa fa-sign-language",
             label = "Pick From Garden",
           },
         },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
 RegisterNetEvent('ChillPeppers', function()
-  for k, v in pairs(CPeppersFields) do 
+  for k, v in pairs(CPeppersFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -966,18 +966,18 @@ RegisterNetEvent('ChillPeppers', function()
           {
             type = "client",
             event = "qb-simplefarming:chillfield",
-            icon = "fa fa-sign-language",  
+            icon = "fa fa-sign-language",
             label = "Pick From Garden",
           },
         },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
 
 RegisterNetEvent('Tomatoes', function()
-  for k, v in pairs(TomatoesField) do 
+  for k, v in pairs(TomatoesField) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -989,17 +989,17 @@ RegisterNetEvent('Tomatoes', function()
           {
             type = "client",
             event = "qb-simplefarming:tomatoefields",
-            icon = "fa fa-sign-language",  
+            icon = "fa fa-sign-language",
             label = "Pick From Garden",
           },
         },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
 
--- Big Garden 
+-- Big Garden
 if Config.UseBlips then
   CreateThread(function()
     for k, v in pairs(BigGarden) do
@@ -1027,19 +1027,19 @@ if Config.UseBlips then
           TriggerEvent('BigChillyField')
           TriggerEvent('BigTomField')
         else
-          for k, v in pairs(BigGrapeFields) do 
+          for k, v in pairs(BigGrapeFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(BigGreenPepperFields) do 
+          for k, v in pairs(BigGreenPepperFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(BigChillyPepperFields) do 
+          for k, v in pairs(BigChillyPepperFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(BigTomatoesFields) do 
+          for k, v in pairs(BigTomatoesFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -1065,19 +1065,19 @@ else
           TriggerEvent('BigChillyField')
           TriggerEvent('BigTomField')
         else
-          for k, v in pairs(BigGrapeFields) do 
+          for k, v in pairs(BigGrapeFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(BigGreenPepperFields) do 
+          for k, v in pairs(BigGreenPepperFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(BigChillyPepperFields) do 
+          for k, v in pairs(BigChillyPepperFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(BigTomatoesFields) do 
+          for k, v in pairs(BigTomatoesFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -1088,7 +1088,7 @@ else
 end
 
 RegisterNetEvent('BigGrapeField', function()
-  for k, v in pairs(BigGrapeFields) do 
+  for k, v in pairs(BigGrapeFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1100,18 +1100,18 @@ RegisterNetEvent('BigGrapeField', function()
         {
           type = "client",
           event = "qb-simplefarming:grapefield",
-          icon = "fa fa-sign-language",  
+          icon = "fa fa-sign-language",
           label = "Pick From Garden",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
 
 RegisterNetEvent('BigGreenPField', function()
-  for k, v in pairs(BigGreenPepperFields) do 
+  for k, v in pairs(BigGreenPepperFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1123,17 +1123,17 @@ RegisterNetEvent('BigGreenPField', function()
         {
           type = "client",
           event = "qb-simplefarming:greenpepperfield",
-          icon = "fa fa-sign-language",  
+          icon = "fa fa-sign-language",
           label = "Pick From Garden",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
 RegisterNetEvent('BigChillyField', function()
-  for k, v in pairs(BigChillyPepperFields) do 
+  for k, v in pairs(BigChillyPepperFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1145,18 +1145,18 @@ RegisterNetEvent('BigChillyField', function()
         {
           type = "client",
           event = "qb-simplefarming:chillfield",
-          icon = "fa fa-sign-language",  
+          icon = "fa fa-sign-language",
           label = "Pick From Garden",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
 
 RegisterNetEvent('BigTomField', function()
-  for k, v in pairs(BigTomatoesFields) do 
+  for k, v in pairs(BigTomatoesFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1168,12 +1168,12 @@ RegisterNetEvent('BigTomField', function()
         {
           type = "client",
           event = "qb-simplefarming:tomatoefields",
-          icon = "fa fa-sign-language",  
+          icon = "fa fa-sign-language",
           label = "Pick From Garden",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 
@@ -1201,67 +1201,67 @@ if Config.UseBlips then
           inZone = true
           TriggerEvent('PigPens')
         else
-          for k, v in pairs(PigPens1) do 
+          for k, v in pairs(PigPens1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens2) do 
+          for k, v in pairs(PigPens2) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens3) do 
+          for k, v in pairs(PigPens3) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens4) do 
+          for k, v in pairs(PigPens4) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens5) do 
+          for k, v in pairs(PigPens5) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens6) do 
+          for k, v in pairs(PigPens6) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens7) do 
+          for k, v in pairs(PigPens7) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens8) do 
+          for k, v in pairs(PigPens8) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens9) do 
+          for k, v in pairs(PigPens9) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens10) do 
+          for k, v in pairs(PigPens10) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens11) do 
+          for k, v in pairs(PigPens11) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens12) do 
+          for k, v in pairs(PigPens12) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens13) do 
+          for k, v in pairs(PigPens13) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens14) do 
+          for k, v in pairs(PigPens14) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens15) do 
+          for k, v in pairs(PigPens15) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens16) do 
+          for k, v in pairs(PigPens16) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -1284,67 +1284,67 @@ else
           inZone = true
           TriggerEvent('PigPens')
         else
-          for k, v in pairs(PigPens1) do 
+          for k, v in pairs(PigPens1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens2) do 
+          for k, v in pairs(PigPens2) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens3) do 
+          for k, v in pairs(PigPens3) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens4) do 
+          for k, v in pairs(PigPens4) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens5) do 
+          for k, v in pairs(PigPens5) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens6) do 
+          for k, v in pairs(PigPens6) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens7) do 
+          for k, v in pairs(PigPens7) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens8) do 
+          for k, v in pairs(PigPens8) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens9) do 
+          for k, v in pairs(PigPens9) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens10) do 
+          for k, v in pairs(PigPens10) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens11) do 
+          for k, v in pairs(PigPens11) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens12) do 
+          for k, v in pairs(PigPens12) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens13) do 
+          for k, v in pairs(PigPens13) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens14) do 
+          for k, v in pairs(PigPens14) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens15) do 
+          for k, v in pairs(PigPens15) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens16) do 
+          for k, v in pairs(PigPens16) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -1367,7 +1367,7 @@ RegisterNetEvent('qb-simplefarming:petpiggy', function()
       TriggerServerEvent('hud:server:RelieveStress', math.random(2, 5))
       Wait(1000)
       QBCore.Functions.Notify(Config.Alerts['stress'])
-  end, function() 
+  end, function()
       ClearPedTasks(PlayerPedId())
       QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
   end)
@@ -1387,7 +1387,7 @@ RegisterNetEvent('qb-simplefarming:feedpig', function ()
           TriggerEvent('animations:client:EmoteCommandStart', {"c"})
           TriggerServerEvent("qb-simplefarming:feedingpiglit")
           Wait(2000)
-      end, function() 
+      end, function()
           ClearPedTasks(PlayerPedId())
           QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
       end)
@@ -1410,10 +1410,10 @@ RegisterNetEvent('qb-simplefarming:baconprocessing', function()
       disableCarMovement = true,
       disableMouse = false,
       disableCombat = true,
-      }, {}, {}, {}, function()    
+      }, {}, {}, {}, function()
           TriggerEvent('animations:client:EmoteCommandStart', {"c"})
           TriggerServerEvent("qb-simplefarming:baconprocessed")
-      end, function() 
+      end, function()
         QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
       end)
     elseif not rawbeef then
@@ -1431,10 +1431,10 @@ RegisterNetEvent('qb-simplefarming:hamprocessing', function()
       disableCarMovement = true,
       disableMouse = false,
         disableCombat = true,
-      }, {}, {}, {}, function()    
+      }, {}, {}, {}, function()
           TriggerEvent('animations:client:EmoteCommandStart', {"c"})
           TriggerServerEvent("qb-simplefarming:hamprocessed")
-      end, function() 
+      end, function()
         QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
       end)
     elseif not rawbeef then
@@ -1452,10 +1452,10 @@ RegisterNetEvent('qb-simplefarming:porkprocessing', function()
       disableCarMovement = true,
       disableMouse = false,
       disableCombat = true,
-      }, {}, {}, {}, function()    
+      }, {}, {}, {}, function()
           TriggerEvent('animations:client:EmoteCommandStart', {"c"})
           TriggerServerEvent("qb-simplefarming:porkprocessed")
-      end, function() 
+      end, function()
         QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
       end)
     elseif not rawbeef then
@@ -1473,10 +1473,10 @@ RegisterNetEvent('qb-simplefarming:sausageprocessing', function()
       disableCarMovement = true,
       disableMouse = false,
       disableCombat = true,
-      }, {}, {}, {}, function()    
+      }, {}, {}, {}, function()
           TriggerEvent('animations:client:EmoteCommandStart', {"c"})
           TriggerServerEvent("qb-simplefarming:sausageprocessed")
-      end, function() 
+      end, function()
         QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
       end)
     elseif not rawbeef then
@@ -1487,7 +1487,7 @@ end)
 
 
 RegisterNetEvent('PigPens', function()
-  for k, v in pairs(PigPens1) do 
+  for k, v in pairs(PigPens1) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1499,26 +1499,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig1",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens2) do 
+  for k, v in pairs(PigPens2) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1530,26 +1530,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig2",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens3) do 
+  for k, v in pairs(PigPens3) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1561,26 +1561,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig3",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens4) do 
+  for k, v in pairs(PigPens4) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1592,26 +1592,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig4",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens5) do 
+  for k, v in pairs(PigPens5) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1623,26 +1623,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig5",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens6) do 
+  for k, v in pairs(PigPens6) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1654,26 +1654,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig6",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens7) do 
+  for k, v in pairs(PigPens7) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1685,26 +1685,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig7",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens8) do 
+  for k, v in pairs(PigPens8) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1716,26 +1716,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig8",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens9) do 
+  for k, v in pairs(PigPens9) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1747,26 +1747,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig9",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens10) do 
+  for k, v in pairs(PigPens10) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1778,26 +1778,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig10",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens11) do 
+  for k, v in pairs(PigPens11) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1809,26 +1809,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig11",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens12) do 
+  for k, v in pairs(PigPens12) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1840,26 +1840,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig12",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens13) do 
+  for k, v in pairs(PigPens13) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1871,26 +1871,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig13",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens14) do 
+  for k, v in pairs(PigPens14) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1902,26 +1902,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig14",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens15) do 
+  for k, v in pairs(PigPens15) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1933,26 +1933,26 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig15",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
-  for k, v in pairs(PigPens16) do 
+  for k, v in pairs(PigPens16) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1964,24 +1964,24 @@ RegisterNetEvent('PigPens', function()
         {
           type = "client",
           event = "qb-simplefarming:petpiggy",
-          icon = "Fas Fa-Hand-Paper",  
+          icon = "Fas Fa-Hand-Paper",
           label = "Pet",
         },
         {
           type = "client",
           event = "qb-simplefarming:feedpig",
-          icon = "Fas Fa-Hand-Holding-Heart",  
+          icon = "Fas Fa-Hand-Holding-Heart",
           label = "Feed Pig",
         },
         {
           type = "client",
           event = "qb-simplefarming:killpig16",
-          icon = "Fas Fa-Piggy-Bank",  
+          icon = "Fas Fa-Piggy-Bank",
           label = "Slaughter Pig",
         },
       },
       distance = v.distance,
-    }) 
+    })
   end
 end)
 

@@ -3,7 +3,7 @@ AppleField = {
         label = "Apple Farm",
         BlipCoord = vector3(2395.57, 4704.02, 33.65),
         Blip = 1,
-        BlipColor = 2, 
+        BlipColor = 2,
         zones = {
             vector2(2452.8928222656, 4672.4086914062),
             vector2(2439.8227539062, 4687.1166992188),
@@ -29,7 +29,7 @@ AppleField = {
         label = "Apple Farm",
         BlipCoord = vector3(229.14, 6511.47, 31.3),
         Blip = 1,
-        BlipColor = 2, 
+        BlipColor = 2,
         zones = {
             vector2(289.20321655273, 6502.2163085938),
             vector2(287.77514648438, 6536.603515625),
@@ -44,7 +44,7 @@ AppleField = {
         label = "Apple Farm",
         BlipCoord = vector3(344.48, 6516.05, 28.98),
         Blip = 1,
-        BlipColor = 2, 
+        BlipColor = 2,
         zones = {
             vector2(382.51480102539, 6501.0625),
             vector2(381.90463256836, 6536.7026367188),
@@ -58,7 +58,7 @@ AppleField = {
         label = "Apple Farm",
         BlipCoord = vector3(2360.18, 5001.98, 43.37),
         Blip = 1,
-        BlipColor = 2, 
+        BlipColor = 2,
         zones = {
             vector2(2399.5366210938, 4999.3530273438),
             vector2(2366.2536621094, 5033.7846679688),
@@ -77,7 +77,7 @@ AppleField = {
         label = "Apple Farm",
         BlipCoord = vector3(2067.21, 4830.06, 43.28),
         Blip = 1,
-        BlipColor = 2, 
+        BlipColor = 2,
         zones = {
             vector2(2152.3620605469, 4867.8896484375),
             vector2(2121.8264160156, 4895.2124023438),
@@ -100,7 +100,7 @@ Barns = {
         label = "Barn",
         BlipCoord = vector3(427.27, 6467.9, 33.06),
         Blip = 569,
-        BlipColor = 1, 
+        BlipColor = 1,
         zones = {
             vector2(427.27011108398, 6482.0576171875),
             vector2(414.93353271484, 6467.5634765625),
@@ -163,7 +163,7 @@ Garden = {
             vector2(368.35971069336, 6457.5698242188)
         },
         minZ = 28.7,
-        maxZ = 31.1 
+        maxZ = 31.1
     },
     [2] = {
         label = "Tomatoe Garden",

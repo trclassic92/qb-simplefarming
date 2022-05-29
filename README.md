@@ -10,8 +10,8 @@ International License][cc-by-nc-sa].
 # qb-simplefarming
 Farming script for QBCore
 
-Included 
-- Easy to use config 
+Included
+- Easy to use config
 - The ability to change notification language
 - Icons (100x100)
 - Map (ymap)

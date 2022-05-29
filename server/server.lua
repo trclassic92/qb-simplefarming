@@ -16,7 +16,7 @@ RegisterNetEvent('qb-simpefarming:sellItems', function()
         end
         Player.Functions.AddMoney("cash", price)
         TriggerClientEvent('QBCore:Notify', src, "You have sold your items")
-    else 
+    else
 		TriggerClientEvent('QBCore:Notify', src, "You do not have the items to sell here!")
 	end
 end)
@@ -35,9 +35,9 @@ RegisterServerEvent('qb-simplefarming:appleprocess', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local apple = Player.Functions.GetItemByName('apple')
-    if not apple then 
+    if not apple then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_appleprocessor'])
-        return false 
+        return false
     end
 
     local amount = apple.amount
@@ -46,11 +46,11 @@ RegisterServerEvent('qb-simplefarming:appleprocess', function()
     else
       return false
     end
-    
-    if not Player.Functions.RemoveItem('apple', amount) then 
+
+    if not Player.Functions.RemoveItem('apple', amount) then
         print('couldnt remove item',amount)
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
-        return false 
+        return false
     end
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['apple'], "remove")
@@ -150,9 +150,9 @@ RegisterServerEvent('qb-simplefarming:beefprocess', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local rawbeef = Player.Functions.GetItemByName('raw_beef')
-    if not rawbeef then 
+    if not rawbeef then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_rawmeat'])
-        return false 
+        return false
     end
 
     local amount = rawbeef.amount
@@ -161,11 +161,11 @@ RegisterServerEvent('qb-simplefarming:beefprocess', function()
     else
       return false
     end
- 
-    if not Player.Functions.RemoveItem('raw_beef', amount) then 
+
+    if not Player.Functions.RemoveItem('raw_beef', amount) then
         print('couldnt remove item',amount)
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
-        return false 
+        return false
     end
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['raw_beef'], "remove")
@@ -188,9 +188,9 @@ RegisterServerEvent('qb-simplefarming:diarymilk', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local milkbucket = Player.Functions.GetItemByName('milkbucket')
-    if not milkbucket then 
+    if not milkbucket then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_milkprocessor'])
-        return false 
+        return false
     end
 
     local amount = milkbucket.amount
@@ -199,11 +199,11 @@ RegisterServerEvent('qb-simplefarming:diarymilk', function()
     else
       return false
     end
-    
-    if not Player.Functions.RemoveItem('milkbucket', amount) then 
+
+    if not Player.Functions.RemoveItem('milkbucket', amount) then
         print('couldnt remove item',amount)
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
-        return false 
+        return false
     end
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['milkbucket'], "remove")
@@ -230,9 +230,9 @@ RegisterServerEvent('qb-simplefarming:pumpkinprocessing', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local pumpkin = Player.Functions.GetItemByName('rawpumpkin')
-    if not pumpkin then 
+    if not pumpkin then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_milkprocessor'])
-        return false 
+        return false
     end
 
     local amount = pumpkin.amount
@@ -241,10 +241,10 @@ RegisterServerEvent('qb-simplefarming:pumpkinprocessing', function()
     else
       return false
     end
-    
-    if not Player.Functions.RemoveItem('rawpumpkin', amount) then 
+
+    if not Player.Functions.RemoveItem('rawpumpkin', amount) then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
-        return false 
+        return false
     end
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['rawpumpkin'], "remove")
@@ -293,9 +293,9 @@ RegisterServerEvent('qb-simplefarming:cornprocessing', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local corn = Player.Functions.GetItemByName('corncob')
-    if not corn then 
+    if not corn then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_corncob'])
-        return false 
+        return false
     end
 
     local amount = corn.amount
@@ -304,10 +304,10 @@ RegisterServerEvent('qb-simplefarming:cornprocessing', function()
     else
       return false
     end
-    
-    if not Player.Functions.RemoveItem('corncob', amount) then 
+
+    if not Player.Functions.RemoveItem('corncob', amount) then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
-        return false 
+        return false
     end
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['corncob'], "remove")
@@ -383,9 +383,9 @@ RegisterServerEvent('qb-simplefarming:grapeprocessing', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local grapes = Player.Functions.GetItemByName('grapes')
-    if not grapes then 
+    if not grapes then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_grape'])
-        return false 
+        return false
     end
 
     local amount = grapes.amount
@@ -394,10 +394,10 @@ RegisterServerEvent('qb-simplefarming:grapeprocessing', function()
     else
       return false
     end
-    
-    if not Player.Functions.RemoveItem('grapes', amount) then 
+
+    if not Player.Functions.RemoveItem('grapes', amount) then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
-        return false 
+        return false
     end
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['grapes'], "remove")
@@ -435,9 +435,9 @@ RegisterServerEvent('qb-simplefarming:makinghotsauce', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local pepper = Player.Functions.GetItemByName('chillypepper')
-    if not pepper then 
+    if not pepper then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_chilly'])
-        return false 
+        return false
     end
 
     local amount = pepper.amount
@@ -446,10 +446,10 @@ RegisterServerEvent('qb-simplefarming:makinghotsauce', function()
     else
       return false
     end
-    
-    if not Player.Functions.RemoveItem('chillypepper', amount) then 
+
+    if not Player.Functions.RemoveItem('chillypepper', amount) then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
-        return false 
+        return false
     end
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['chillypepper'], "remove")
@@ -475,7 +475,7 @@ RegisterServerEvent('qb-simplefarming:tomatoesprocessing', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local tom = Player.Functions.GetItemByName('tomato')
-    if not tom then 
+    if not tom then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_tomatoes'])
         return false
     end
@@ -486,10 +486,10 @@ RegisterServerEvent('qb-simplefarming:tomatoesprocessing', function()
     else
       return false
     end
-    
-    if not Player.Functions.RemoveItem('tomato', amount) then 
+
+    if not Player.Functions.RemoveItem('tomato', amount) then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
-        return false 
+        return false
     end
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['tomato'], "remove")
@@ -562,7 +562,7 @@ RegisterServerEvent('qb-simplefarming:baconprocessed', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local bacon = Player.Functions.GetItemByName('raw_bacon')
-    if not bacon then 
+    if not bacon then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_bacon'])
         return false
     end
@@ -573,10 +573,10 @@ RegisterServerEvent('qb-simplefarming:baconprocessed', function()
     else
       return false
     end
-    
-    if not Player.Functions.RemoveItem('raw_bacon', amount) then 
+
+    if not Player.Functions.RemoveItem('raw_bacon', amount) then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
-        return false 
+        return false
     end
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['raw_bacon'], "remove")
@@ -591,7 +591,7 @@ RegisterServerEvent('qb-simplefarming:hamprocessed', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local ham = Player.Functions.GetItemByName('raw_ham')
-    if not ham then 
+    if not ham then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_ham'])
         return false
     end
@@ -602,10 +602,10 @@ RegisterServerEvent('qb-simplefarming:hamprocessed', function()
     else
       return false
     end
-    
-    if not Player.Functions.RemoveItem('raw_ham', amount) then 
+
+    if not Player.Functions.RemoveItem('raw_ham', amount) then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
-        return false 
+        return false
     end
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['raw_ham'], "remove")
@@ -620,7 +620,7 @@ RegisterServerEvent('qb-simplefarming:porkprocessed', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local pork = Player.Functions.GetItemByName('raw_pork')
-    if not pork then 
+    if not pork then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_pork'])
         return false
     end
@@ -631,10 +631,10 @@ RegisterServerEvent('qb-simplefarming:porkprocessed', function()
     else
       return false
     end
-    
-    if not Player.Functions.RemoveItem('raw_pork', amount) then 
+
+    if not Player.Functions.RemoveItem('raw_pork', amount) then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
-        return false 
+        return false
     end
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['raw_pork'], "remove")
@@ -649,7 +649,7 @@ RegisterServerEvent('qb-simplefarming:sausageprocessed', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local sausage = Player.Functions.GetItemByName('raw_sausage')
-    if not sausage then 
+    if not sausage then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_sausage'])
         return false
     end
@@ -660,10 +660,10 @@ RegisterServerEvent('qb-simplefarming:sausageprocessed', function()
     else
       return false
     end
-    
-    if not Player.Functions.RemoveItem('raw_sausage', amount) then 
+
+    if not Player.Functions.RemoveItem('raw_sausage', amount) then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['itemamount'])
-        return false 
+        return false
     end
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['raw_sausage'], "remove")
@@ -690,7 +690,7 @@ RegisterServerEvent('qb-simplefarming:feedingpiglit', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local soybean = Player.Functions.GetItemByName('soybeans')
-    if not soybean then 
+    if not soybean then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error_soybean'])
         return false
     end
@@ -701,10 +701,10 @@ RegisterServerEvent('qb-simplefarming:feedingpiglit', function()
     else
       return false
     end
-    
-    if not Player.Functions.RemoveItem('soybeans', amount) then 
+
+    if not Player.Functions.RemoveItem('soybeans', amount) then
         TriggerClientEvent('QBCore:Notify', source, Config.Alerts['error.soybean'])
-        return false 
+        return false
     end
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['soybeans'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['stress'])

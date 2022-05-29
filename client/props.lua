@@ -28,7 +28,7 @@ CreateThread(function()
     while ( not HasModelLoaded( GetHashKey( PedModel ) ) ) do
         Wait(1)
     end
-    pedcow = CreatePed(1, 0xFCFA9E1E, 434.06, 6472.8, 28.77, 77.31, false, true) 
+    pedcow = CreatePed(1, 0xFCFA9E1E, 434.06, 6472.8, 28.77, 77.31, false, true)
     pedcow1 = CreatePed(1, 0xFCFA9E1E, 425.61, 6463.31, 28.78, 31.94, false, true)
     pedcow2 = CreatePed(1, 0xFCFA9E1E, 431.66, 6458.51, 28.75, 0, false, true)
     pedcow3 = CreatePed(1, 0xFCFA9E1E, 437.68, 6453.88, 28.76, 0, false, true)
@@ -77,14 +77,14 @@ RegisterNetEvent('qb-simplefarming:slaughter1', function()
           disableMouse = false,
           disableCombat = true,
           }, {
-          }, {}, {}, function() 
+          }, {}, {}, function()
               DeleteEntity(pedcow)
               TriggerEvent('animations:client:EmoteCommandStart', {"c"})
               ClearPedTasks(PlayerPedId())
               TriggerServerEvent('qb-simplefarming:cowkilling')
               TriggerServerEvent('hud:Server:GainStress', math.random(1, 2))
               Wait(1200000) -- 20 minutes
-              pedcow = CreatePed(1, 0xFCFA9E1E, 433.68, 6473.67, 28.77, 0, false, true) 
+              pedcow = CreatePed(1, 0xFCFA9E1E, 433.68, 6473.67, 28.77, 0, false, true)
           end, function()
           QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
         end)
@@ -106,7 +106,7 @@ RegisterNetEvent('qb-simplefarming:slaughter2', function()
           disableMouse = false,
           disableCombat = true,
           }, {
-          }, {}, {}, function() 
+          }, {}, {}, function()
               DeleteEntity(pedcow1)
               TriggerEvent('animations:client:EmoteCommandStart', {"c"})
               TriggerServerEvent('qb-simplefarming:cowkilling')
@@ -135,7 +135,7 @@ RegisterNetEvent('qb-simplefarming:slaughter3', function()
           disableMouse = false,
           disableCombat = true,
           }, {
-          }, {}, {}, function() 
+          }, {}, {}, function()
               DeleteEntity(pedcow2)
               TriggerEvent('animations:client:EmoteCommandStart', {"c"})
               TriggerServerEvent('qb-simplefarming:cowkilling')
@@ -163,7 +163,7 @@ RegisterNetEvent('qb-simplefarming:slaughter4', function()
           disableMouse = false,
           disableCombat = true,
           }, {
-          }, {}, {}, function() 
+          }, {}, {}, function()
               DeleteEntity(pedcow3)
               TriggerEvent('animations:client:EmoteCommandStart', {"c"})
               TriggerServerEvent('qb-simplefarming:cowkilling')
@@ -190,7 +190,7 @@ RegisterNetEvent('qb-simplefarming:killpig1', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig1)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -218,7 +218,7 @@ RegisterNetEvent('qb-simplefarming:killpig2', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig2)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -246,7 +246,7 @@ RegisterNetEvent('qb-simplefarming:killpig3', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig3)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -274,7 +274,7 @@ RegisterNetEvent('qb-simplefarming:killpig4', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig4)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -302,7 +302,7 @@ RegisterNetEvent('qb-simplefarming:killpig5', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig5)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -330,7 +330,7 @@ RegisterNetEvent('qb-simplefarming:killpig6', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig6)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -358,7 +358,7 @@ RegisterNetEvent('qb-simplefarming:killpig7', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig7)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -386,7 +386,7 @@ RegisterNetEvent('qb-simplefarming:killpig8', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig8)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -414,7 +414,7 @@ RegisterNetEvent('qb-simplefarming:killpig9', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig9)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -442,7 +442,7 @@ RegisterNetEvent('qb-simplefarming:killpig10', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig10)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -470,7 +470,7 @@ RegisterNetEvent('qb-simplefarming:killpig11', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig11)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -498,7 +498,7 @@ RegisterNetEvent('qb-simplefarming:killpig12', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig12)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -526,7 +526,7 @@ RegisterNetEvent('qb-simplefarming:killpig13', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig13)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -554,7 +554,7 @@ RegisterNetEvent('qb-simplefarming:killpig14', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig14)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -582,7 +582,7 @@ RegisterNetEvent('qb-simplefarming:killpig15', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig15)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())
@@ -610,7 +610,7 @@ RegisterNetEvent('qb-simplefarming:killpig16', function()
           disableCarMovement = true,
           disableMouse = false,
           disableCombat = true,
-          }, {}, {}, {}, function() 
+          }, {}, {}, {}, function()
             DeleteEntity(pedpig16)
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             ClearPedTasks(PlayerPedId())

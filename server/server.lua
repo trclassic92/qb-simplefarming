@@ -1,11 +1,11 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
 RegisterNetEvent('qb-simpefarming:sellItems', function()
-    local src = source
+    local source = source
     local price = 0
-    local Player = QBCore.Functions.GetPlayer(src)
+    local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.items ~= nil and next(Player.PlayerData.items) ~= nil then
-        for k, v in pairs(Player.PlayerData.items) do
+        for k in pairs(Player.PlayerData.items) do
             if Player.PlayerData.items[k] ~= nil then
                 if Config.Sell[Player.PlayerData.items[k].name] ~= nil then
                     price = price + (Config.Sell[Player.PlayerData.items[k].name].price * Player.PlayerData.items[k].amount)
@@ -15,9 +15,9 @@ RegisterNetEvent('qb-simpefarming:sellItems', function()
             end
         end
         Player.Functions.AddMoney("cash", price)
-        TriggerClientEvent('QBCore:Notify', src, "You have sold your items")
+        TriggerClientEvent('QBCore:Notify', source, "You have sold your items")
     else
-		TriggerClientEvent('QBCore:Notify', src, "You do not have the items to sell here!")
+		TriggerClientEvent('QBCore:Notify', source, "You do not have the items to sell here!")
 	end
 end)
 ------------------------------- Apple Stuff ----------------------------
@@ -26,7 +26,7 @@ RegisterServerEvent('qb-simplefarming:applepicking', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local amount = math.random(1,3)
-    Player.Functions.AddItem('apple', amount, false, info)
+    Player.Functions.AddItem('apple', amount, false)
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['apple_pickingfront'] ..amount.. Config.Alerts['apple_pickingend'])
 end)
 
@@ -56,9 +56,9 @@ RegisterServerEvent('qb-simplefarming:appleprocess', function()
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['apple'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['apple_processing'])
     print(Config.Alerts['apple_processing'])
-    local amount = Config.AppleJuice
+    local AppleJuice = Config.AppleJuice
     Wait(750)
-    Player.Functions.AddItem('apple_juice', amount)
+    Player.Functions.AddItem('apple_juice', AppleJuice)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['apple_juice'], "add")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['apple_trader'])
 end)
@@ -139,9 +139,9 @@ RegisterServerEvent('qb-simplefarming:cowkilling', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local cowraw_meat1 = math.random(2,4)
-    Player.Functions.AddItem('raw_beef', cowraw_meat1, false, info)
+    Player.Functions.AddItem('raw_beef', cowraw_meat1, false)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['raw_beef'], "add")
-    Player.Functions.AddItem('cow_leather', 1, info)
+    Player.Functions.AddItem('cow_leather', 1)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['cow_leather'], "add")
     TriggerClientEvent('QBCore:Notify', source, "Gathered  " ..cowraw_meat1.. " amount of raw meat. You Also skinned the cow for 1 leather")
 end)
@@ -170,9 +170,9 @@ RegisterServerEvent('qb-simplefarming:beefprocess', function()
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['raw_beef'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['cow_processing'])
-    local amount = Config.CowMeat
+    local Cowmeat = Config.CowMeat
     Wait(750)
-    Player.Functions.AddItem('beef', amount)
+    Player.Functions.AddItem('beef', Cowmeat)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['beef'], "add")
 end)
 
@@ -208,9 +208,9 @@ RegisterServerEvent('qb-simplefarming:diarymilk', function()
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['milkbucket'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['milk_processing'])
-    local amount = Config.Milk
+    local Milk = Config.Milk
     Wait(750)
-    Player.Functions.AddItem('milk', amount)
+    Player.Functions.AddItem('milk', Milk)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['milk'], "add")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['milk_trader'])
 end)
@@ -249,9 +249,9 @@ RegisterServerEvent('qb-simplefarming:pumpkinprocessing', function()
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['rawpumpkin'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['pumpkin_processing'])
-    local amount = Config.PumpkinBoxes
+    local Pumpkins = Config.PumpkinBoxes
     Wait(750)
-    Player.Functions.AddItem('pumpkinpiebox', amount)
+    Player.Functions.AddItem('pumpkinpiebox', Pumpkins)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['pumpkinpiebox'], "add")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['pumpkin_trader'])
 end)
@@ -312,9 +312,9 @@ RegisterServerEvent('qb-simplefarming:cornprocessing', function()
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['corncob'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['corn_processing'])
-    local amount = Config.CornProcessed
+    local Corn = Config.CornProcessed
     Wait(750)
-    Player.Functions.AddItem('canofcorn', amount)
+    Player.Functions.AddItem('canofcorn', Corn)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['canofcorn'], "add")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['corn_processed'])
 end)
@@ -402,9 +402,9 @@ RegisterServerEvent('qb-simplefarming:grapeprocessing', function()
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['grapes'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['grape_processing'])
-    local amount = Config.GrapeProcessed
+    local Grape = Config.GrapeProcessed
     Wait(750)
-    Player.Functions.AddItem('grapejuice', amount)
+    Player.Functions.AddItem('grapejuice', Grape)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['grapejuice'], "add")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['grape_processed'])
 end)
@@ -454,9 +454,9 @@ RegisterServerEvent('qb-simplefarming:makinghotsauce', function()
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['chillypepper'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['chilly_processing'])
-    local amount = Config.ChillyProcessed
+    local Chilly = Config.ChillyProcessed
     Wait(750)
-    Player.Functions.AddItem('hotsauce', amount)
+    Player.Functions.AddItem('hotsauce', Chilly)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['hotsauce'], "add")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['chilly_processed'])
 end)
@@ -494,9 +494,9 @@ RegisterServerEvent('qb-simplefarming:tomatoesprocessing', function()
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['tomato'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['tomatoes_processing'])
-    local amount = Config.TomatoesProcessed
+    local Tom = Config.TomatoesProcessed
     Wait(750)
-    Player.Functions.AddItem('tomatopaste', amount)
+    Player.Functions.AddItem('tomatopaste', Tom)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['tomatopaste'], "add")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['tomatoes_processed'])
 end)
@@ -581,9 +581,9 @@ RegisterServerEvent('qb-simplefarming:baconprocessed', function()
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['raw_bacon'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['bacon_processing'])
-    local amount = Config.BaconProcessed
+    local Bacon = Config.BaconProcessed
     Wait(750)
-    Player.Functions.AddItem('cooked_bacon', amount)
+    Player.Functions.AddItem('cooked_bacon', Bacon)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['cooked_bacon'], "add")
 end)
 
@@ -610,9 +610,9 @@ RegisterServerEvent('qb-simplefarming:hamprocessed', function()
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['raw_ham'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['ham_processing'])
-    local amount = Config.HamProcessing
+    local Ham = Config.HamProcessing
     Wait(750)
-    Player.Functions.AddItem('cooked_ham', amount)
+    Player.Functions.AddItem('cooked_ham', Ham)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['cooked_ham'], "add")
 end)
 
@@ -639,9 +639,9 @@ RegisterServerEvent('qb-simplefarming:porkprocessed', function()
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['raw_pork'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['pork_cooking'])
-    local amount = Config.PorkProcessed
+    local Pork = Config.PorkProcessed
     Wait(750)
-    Player.Functions.AddItem('cooked_pork', amount)
+    Player.Functions.AddItem('cooked_pork', Pork)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['cooked_pork'], "add")
 end)
 
@@ -668,9 +668,9 @@ RegisterServerEvent('qb-simplefarming:sausageprocessed', function()
 
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['raw_sausage'], "remove")
     TriggerClientEvent('QBCore:Notify', source, Config.Alerts['sausage_processing'])
-    local amount = Config.SausageProcessed
+    local Sausage = Config.SausageProcessed
     Wait(750)
-    Player.Functions.AddItem('cooked_sausage', amount)
+    Player.Functions.AddItem('cooked_sausage', Sausage)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['cooked_sausage'], "add")
 end)
 
@@ -734,146 +734,146 @@ end)
 --- Useable Items
 
 QBCore.Functions.CreateUseableItem("apple", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("apple_juice", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Drink", src, item.name)
+        TriggerClientEvent("consumables:client:Drink", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("beef", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("milk", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Drink", src, item.name)
+        TriggerClientEvent("consumables:client:Drink", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("slicedpie", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("corncob", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("canofcorn", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("grapes", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("grapejuice", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Drink", src, item.name)
+        TriggerClientEvent("consumables:client:Drink", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("greenpepper", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("chillypepper", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("hotsauce", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Drink", src, item.name)
+        TriggerClientEvent("consumables:client:Drink", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("tomato", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("tomatopaste", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("cooked_bacon", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("cooked_sausage", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("cooked_pork", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
 QBCore.Functions.CreateUseableItem("cooked_ham", function(source, item)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local source = source
+    local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:Eat", src, item.name)
+        TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
 
@@ -881,5 +881,10 @@ AddEventHandler('onResourceStart', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then
         return
     end
-    print("^0\n ------------------------------------------------------------------------------------------------------------------------------\n ^1\n  ██████╗ ██████╗       ███████╗██╗███╗   ███╗██████╗ ██╗     ███████╗███████╗ █████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗ ██████╗ \t \n ██╔═══██╗██╔══██╗      ██╔════╝██║████╗ ████║██╔══██╗██║     ██╔════╝██╔════╝██╔══██╗██╔══██╗████╗ ████║██║████╗  ██║██╔════╝ \r \n ██║   ██║██████╔╝█████╗███████╗██║██╔████╔██║██████╔╝██║     █████╗  █████╗  ███████║██████╔╝██╔████╔██║██║██╔██╗ ██║██║  ███╗\t \n ██║▄▄ ██║██╔══██╗╚════╝╚════██║██║██║╚██╔╝██║██╔═══╝ ██║     ██╔══╝  ██╔══╝  ██╔══██║██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██║   ██║\t \n ╚██████╔╝██████╔╝      ███████║██║██║ ╚═╝ ██║██║     ███████╗███████╗██║     ██║  ██║██║  ██║██║ ╚═╝ ██║██║██║ ╚████║╚██████╔╝\t \n  ╚══▀▀═╝ ╚═════╝       ╚══════╝╚═╝╚═╝     ╚═╝╚═╝     ╚══════╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ \t \n    \n   \n                   ^1Discord ^5 --> ^0https://discord.gg/zRCdhENsHG                         ^1Author^5: ^0TRClassic#0001 \n \n------------------------------------------------------------------------------------------------------------------------------ \n ")
+    print("------------------------------------------------------------------------------------------------------------------------------")
+    print("^1")
+    print("\n  ██████╗ ██████╗       ███████╗██╗███╗   ███╗██████╗ ██╗     ███████╗███████╗ █████╗ ██████╗ ███╗   ███╗██╗███╗   ██╗ ██████╗ \t \n ██╔═══██╗██╔══██╗      ██╔════╝██║████╗ ████║██╔══██╗██║     ██╔════╝██╔════╝██╔══██╗██╔══██╗████╗ ████║██║████╗  ██║██╔════╝ \r \n ██║   ██║██████╔╝█████╗███████╗██║██╔████╔██║██████╔╝██║     █████╗  █████╗  ███████║██████╔╝██╔████╔██║██║██╔██╗ ██║██║  ███╗\t \n ██║▄▄ ██║██╔══██╗╚════╝╚════██║██║██║╚██╔╝██║██╔═══╝ ██║     ██╔══╝  ██╔══╝  ██╔══██║██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██║   ██║\t \n ╚██████╔╝██████╔╝      ███████║██║██║ ╚═╝ ██║██║     ███████╗███████╗██║     ██║  ██║██║  ██║██║ ╚═╝ ██║██║██║ ╚████║╚██████╔╝\t \n ╚══▀▀═╝ ╚═════╝       ╚══════╝╚═╝╚═╝     ╚═╝╚═╝     ╚══════╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ \t")
+    print("^0")
+    print("       ^1Discord ^5 --> ^0https://discord.gg/fwt4xqHtev         ",   "           ^1Author^5: ^0TRClassic#0001")
+    print("------------------------------------------------------------------------------------------------------------------------------")
 end)

@@ -5,7 +5,7 @@ local inZone = false
 
 if Config.UseBlips then
   CreateThread(function()
-    for k, v in pairs(AppleField) do
+    for k in pairs(AppleField) do
       local AppleFieldBlip = AddBlipForCoord(AppleField[k].BlipCoord)
         SetBlipSprite(AppleFieldBlip, AppleField[k].Blip)
         SetBlipAsShortRange(AppleFieldBlip, true)
@@ -27,7 +27,7 @@ if Config.UseBlips then
           inZone = true
           TriggerEvent('AppleTrees')
         else
-          for k, v in pairs(ATreeZones) do
+          for _, v in pairs(ATreeZones) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -37,7 +37,7 @@ if Config.UseBlips then
   end)
 else
   CreateThread(function()
-    for k, v in pairs(AppleField) do
+    for k in pairs(AppleField) do
       local ApplePicking = PolyZone:Create(AppleField[k].zones, {
         name = AppleField[k].label,
         minZ = AppleField[k].minz,
@@ -50,7 +50,7 @@ else
           inZone = true
           TriggerEvent('AppleTrees')
         else
-          for k, v in pairs(ATreeZones) do
+          for _, v in pairs(ATreeZones) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -98,15 +98,8 @@ RegisterNetEvent('qb-simplefarming:appletree', function()
   end)
 end)
 
-
-CreateThread(function()
-  for k, v in pairs(ATreeZones) do
-  end
-end)
-
-
 RegisterNetEvent('AppleTrees', function()
-  for k, v in pairs(ATreeZones) do
+  for _, v in pairs(ATreeZones) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), 1, 1, {
       name=v.Name,
       heading= v.heading,
@@ -132,7 +125,7 @@ end)
 -- Animals
 if Config.UseBlips then
   CreateThread(function()
-    for k, v in pairs(Barns) do
+    for k in pairs(Barns) do
       local BarnBlip = AddBlipForCoord(Barns[k].BlipCoord)
         SetBlipSprite(BarnBlip, Barns[k].Blip)
         SetBlipAsShortRange(BarnBlip, true)
@@ -157,19 +150,19 @@ if Config.UseBlips then
           TriggerEvent('AnimalFraming3')
           TriggerEvent('AnimalFraming4')
         else
-          for k, v in pairs(CowFarming1) do
+          for _, v in pairs(CowFarming1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(CowFarming2) do
+          for _, v in pairs(CowFarming2) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(CowFarming3) do
+          for _, v in pairs(CowFarming3) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(CowFarming4) do
+          for _, v in pairs(CowFarming4) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -179,7 +172,7 @@ if Config.UseBlips then
   end)
 else
   CreateThread(function()
-    for k, v in pairs(Barns) do
+    for k in pairs(Barns) do
       local BarnFarming = PolyZone:Create(Barns[k].zones, {
           name = Barns[k].label,
           minZ = Barns[k].minz,
@@ -195,19 +188,19 @@ else
             TriggerEvent('AnimalFraming3')
             TriggerEvent('AnimalFraming4')
           else
-            for k, v in pairs(CowFarming1) do
+            for _, v in pairs(CowFarming1) do
               exports['qb-target']:RemoveZone(v.Name)
               inZone = false
             end
-            for k, v in pairs(CowFarming2) do
+            for _, v in pairs(CowFarming2) do
               exports['qb-target']:RemoveZone(v.Name)
               inZone = false
             end
-            for k, v in pairs(CowFarming3) do
+            for _, v in pairs(CowFarming3) do
               exports['qb-target']:RemoveZone(v.Name)
               inZone = false
             end
-            for k, v in pairs(CowFarming4) do
+            for _, v in pairs(CowFarming4) do
               exports['qb-target']:RemoveZone(v.Name)
               inZone = false
             end
@@ -300,7 +293,7 @@ RegisterNetEvent('qb-getcowbucket', function()
 end)
 
 RegisterNetEvent('AnimalFraming', function()
-  for k, v in pairs(CowFarming1) do
+  for _, v in pairs(CowFarming1) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -328,7 +321,7 @@ RegisterNetEvent('AnimalFraming', function()
 end)
 
 RegisterNetEvent('AnimalFraming2', function()
-  for k, v in pairs(CowFarming2) do
+  for _, v in pairs(CowFarming2) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -357,7 +350,7 @@ end)
 
 
 RegisterNetEvent('AnimalFraming3', function()
-  for k, v in pairs(CowFarming3) do
+  for _, v in pairs(CowFarming3) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -386,7 +379,7 @@ end)
 
 
 RegisterNetEvent('AnimalFraming4', function()
-  for k, v in pairs(CowFarming4) do
+  for _, v in pairs(CowFarming4) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -436,7 +429,7 @@ exports['qb-target']:AddBoxZone("GetCowBucket", vector3(419.13, 6470.74, 28.82),
 ------------ Pumpkins --------------
 if Config.UseBlips then
   CreateThread(function()
-    for k, v in pairs(PumpkinField) do
+    for k in pairs(PumpkinField) do
       local PumpkinFarmingBlip = AddBlipForCoord(PumpkinField[k].BlipCoord)
         SetBlipSprite(PumpkinFarmingBlip, PumpkinField[k].Blip)
         SetBlipAsShortRange(PumpkinFarmingBlip, true)
@@ -458,7 +451,7 @@ if Config.UseBlips then
           inZone = true
           TriggerEvent('qb-simplefarming:pumpkin')
         else
-          for k, v in pairs(PumpkinFarming1) do
+          for _, v in pairs(PumpkinFarming1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -468,7 +461,7 @@ if Config.UseBlips then
   end)
 else
   CreateThread(function()
-    for k, v in pairs(PumpkinField) do
+    for k in pairs(PumpkinField) do
       local PumpkinFarmingLocation = PolyZone:Create(PumpkinField[k].zones, {
         name = PumpkinField[k].label,
         minZ = PumpkinField[k].minz,
@@ -481,7 +474,7 @@ else
           inZone = true
           TriggerEvent('qb-simplefarming:pumpkin')
         else
-          for k, v in pairs(PumpkinFarming1) do
+          for _, v in pairs(PumpkinFarming1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -542,7 +535,7 @@ RegisterNetEvent('qb-simplefarming:pumpkinpie', function()
 end)
 
 RegisterNetEvent('qb-simplefarming:pumpkin', function()
-  for k, v in pairs(PumpkinFarming1) do
+  for _, v in pairs(PumpkinFarming1) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -566,7 +559,7 @@ end)
 -- Corn --
 if Config.UseBlips then
   CreateThread(function()
-    for k, v in pairs(CornFields) do
+    for k in pairs(CornFields) do
       local CornFieldBlips = AddBlipForCoord(CornFields[k].BlipCoord)
         SetBlipSprite(CornFieldBlips, CornFields[k].Blip)
         SetBlipAsShortRange(CornFieldBlips, true)
@@ -588,7 +581,7 @@ if Config.UseBlips then
           inZone = true
           TriggerEvent('CornField')
         else
-          for k, v in pairs(CornField1) do
+          for _, v in pairs(CornField1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -598,7 +591,7 @@ if Config.UseBlips then
   end)
 else
   CreateThread(function()
-    for k, v in pairs(CornFields) do
+    for k in pairs(CornFields) do
       local CornFieldLocation = PolyZone:Create(CornFields[k].zones, {
         name = CornFields[k].label,
         minZ = CornFields[k].minz,
@@ -611,7 +604,7 @@ else
           inZone = true
           TriggerEvent('CornField')
         else
-          for k, v in pairs(CornField1) do
+          for _, v in pairs(CornField1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -664,7 +657,7 @@ end)
 
 
 RegisterNetEvent('CornField', function()
-  for k, v in pairs(CornField1) do
+  for _, v in pairs(CornField1) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -690,7 +683,7 @@ end)
 -- Gradens --
 if Config.UseBlips then
   CreateThread(function()
-    for k, v in pairs(Garden) do
+    for k in pairs(Garden) do
       local GardenBlips = AddBlipForCoord(Garden[k].BlipCoord)
         SetBlipSprite(GardenBlips, Garden[k].Blip)
         SetBlipAsShortRange(GardenBlips, true)
@@ -715,19 +708,19 @@ if Config.UseBlips then
           TriggerEvent('ChillPeppers')
           TriggerEvent('Tomatoes')
         else
-          for k, v in pairs(GrapeFields) do
+          for _, v in pairs(GrapeFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(GPeppersFields) do
+          for _, v in pairs(GPeppersFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(CPeppersFields) do
+          for _, v in pairs(CPeppersFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(TomatoesField) do
+          for _, v in pairs(TomatoesField) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -737,7 +730,7 @@ if Config.UseBlips then
   end)
 else
   CreateThread(function()
-    for k, v in pairs(Garden) do
+    for k in pairs(Garden) do
       local GardenLocation = PolyZone:Create(Garden[k].zones, {
         name = Garden[k].label,
         minZ = Garden[k].minz,
@@ -753,19 +746,19 @@ else
           TriggerEvent('ChillPeppers')
           TriggerEvent('Tomatoes')
         else
-          for k, v in pairs(GrapeFields) do
+          for _, v in pairs(GrapeFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(GPeppersFields) do
+          for _, v in pairs(GPeppersFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(CPeppersFields) do
+          for _, v in pairs(CPeppersFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(TomatoesField) do
+          for _, v in pairs(TomatoesField) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -908,7 +901,7 @@ end)
 
 
 RegisterNetEvent('GrapeField', function()
-  for k, v in pairs(GrapeFields) do
+  for _, v in pairs(GrapeFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -931,7 +924,7 @@ end)
 
 
 RegisterNetEvent('GreenPeppers', function()
-  for k, v in pairs(GPeppersFields) do
+  for _, v in pairs(GPeppersFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -953,7 +946,7 @@ RegisterNetEvent('GreenPeppers', function()
 end)
 
 RegisterNetEvent('ChillPeppers', function()
-  for k, v in pairs(CPeppersFields) do
+  for _, v in pairs(CPeppersFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -976,7 +969,7 @@ end)
 
 
 RegisterNetEvent('Tomatoes', function()
-  for k, v in pairs(TomatoesField) do
+  for _, v in pairs(TomatoesField) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1001,7 +994,7 @@ end)
 -- Big Garden
 if Config.UseBlips then
   CreateThread(function()
-    for k, v in pairs(BigGarden) do
+    for k in pairs(BigGarden) do
     local BigGardenBlips = AddBlipForCoord(BigGarden[k].BlipCoord)
       SetBlipSprite(BigGardenBlips, BigGarden[k].Blip)
       SetBlipAsShortRange(BigGardenBlips, true)
@@ -1026,19 +1019,19 @@ if Config.UseBlips then
           TriggerEvent('BigChillyField')
           TriggerEvent('BigTomField')
         else
-          for k, v in pairs(BigGrapeFields) do
+          for _, v in pairs(BigGrapeFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(BigGreenPepperFields) do
+          for _, v in pairs(BigGreenPepperFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(BigChillyPepperFields) do
+          for _, v in pairs(BigChillyPepperFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(BigTomatoesFields) do
+          for _, v in pairs(BigTomatoesFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -1048,7 +1041,7 @@ if Config.UseBlips then
   end)
 else
   CreateThread(function()
-    for k, v in pairs(BigGarden) do
+    for k in pairs(BigGarden) do
       local BigGardenLocation = PolyZone:Create(BigGarden[k].zones, {
         name = BigGarden[k].label,
         minZ = BigGarden[k].minz,
@@ -1064,19 +1057,19 @@ else
           TriggerEvent('BigChillyField')
           TriggerEvent('BigTomField')
         else
-          for k, v in pairs(BigGrapeFields) do
+          for _, v in pairs(BigGrapeFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(BigGreenPepperFields) do
+          for _, v in pairs(BigGreenPepperFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(BigChillyPepperFields) do
+          for _, v in pairs(BigChillyPepperFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(BigTomatoesFields) do
+          for _, v in pairs(BigTomatoesFields) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -1087,7 +1080,7 @@ else
 end
 
 RegisterNetEvent('BigGrapeField', function()
-  for k, v in pairs(BigGrapeFields) do
+  for _, v in pairs(BigGrapeFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1110,7 +1103,7 @@ end)
 
 
 RegisterNetEvent('BigGreenPField', function()
-  for k, v in pairs(BigGreenPepperFields) do
+  for _, v in pairs(BigGreenPepperFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1132,7 +1125,7 @@ RegisterNetEvent('BigGreenPField', function()
 end)
 
 RegisterNetEvent('BigChillyField', function()
-  for k, v in pairs(BigChillyPepperFields) do
+  for _, v in pairs(BigChillyPepperFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1155,7 +1148,7 @@ end)
 
 
 RegisterNetEvent('BigTomField', function()
-  for k, v in pairs(BigTomatoesFields) do
+  for _, v in pairs(BigTomatoesFields) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1178,7 +1171,7 @@ end)
 
 if Config.UseBlips then
   CreateThread(function()
-    for k, v in pairs(PigFarm) do
+    for k in pairs(PigFarm) do
       local PigFarmBlips = AddBlipForCoord(PigFarm[k].BlipCoord)
         SetBlipSprite(PigFarmBlips, PigFarm[k].Blip)
         SetBlipAsShortRange(PigFarmBlips, true)
@@ -1200,67 +1193,67 @@ if Config.UseBlips then
           inZone = true
           TriggerEvent('PigPens')
         else
-          for k, v in pairs(PigPens1) do
+          for _, v in pairs(PigPens1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens2) do
+          for _, v in pairs(PigPens2) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens3) do
+          for _, v in pairs(PigPens3) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens4) do
+          for _, v in pairs(PigPens4) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens5) do
+          for _, v in pairs(PigPens5) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens6) do
+          for _, v in pairs(PigPens6) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens7) do
+          for _, v in pairs(PigPens7) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens8) do
+          for _, v in pairs(PigPens8) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens9) do
+          for _, v in pairs(PigPens9) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens10) do
+          for _, v in pairs(PigPens10) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens11) do
+          for _, v in pairs(PigPens11) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens12) do
+          for _, v in pairs(PigPens12) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens13) do
+          for _, v in pairs(PigPens13) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens14) do
+          for _, v in pairs(PigPens14) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens15) do
+          for _, v in pairs(PigPens15) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens16) do
+          for _, v in pairs(PigPens16) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -1270,7 +1263,7 @@ if Config.UseBlips then
   end)
 else
   CreateThread(function()
-    for k, v in pairs(PigFarm) do
+    for k in pairs(PigFarm) do
       local PigFarmLocation = PolyZone:Create(PigFarm[k].zones, {
         name = PigFarm[k].label,
         minZ = PigFarm[k].minz,
@@ -1283,67 +1276,67 @@ else
           inZone = true
           TriggerEvent('PigPens')
         else
-          for k, v in pairs(PigPens1) do
+          for _, v in pairs(PigPens1) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens2) do
+          for _, v in pairs(PigPens2) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens3) do
+          for _, v in pairs(PigPens3) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens4) do
+          for _, v in pairs(PigPens4) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens5) do
+          for _, v in pairs(PigPens5) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens6) do
+          for _, v in pairs(PigPens6) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens7) do
+          for _, v in pairs(PigPens7) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens8) do
+          for _, v in pairs(PigPens8) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens9) do
+          for _, v in pairs(PigPens9) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens10) do
+          for _, v in pairs(PigPens10) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens11) do
+          for _, v in pairs(PigPens11) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens12) do
+          for _, v in pairs(PigPens12) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens13) do
+          for _, v in pairs(PigPens13) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens14) do
+          for _, v in pairs(PigPens14) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens15) do
+          for _, v in pairs(PigPens15) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
-          for k, v in pairs(PigPens16) do
+          for _, v in pairs(PigPens16) do
             exports['qb-target']:RemoveZone(v.Name)
             inZone = false
           end
@@ -1486,7 +1479,7 @@ end)
 
 
 RegisterNetEvent('PigPens', function()
-  for k, v in pairs(PigPens1) do
+  for _, v in pairs(PigPens1) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1517,7 +1510,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens2) do
+  for _, v in pairs(PigPens2) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1548,7 +1541,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens3) do
+  for _, v in pairs(PigPens3) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1579,7 +1572,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens4) do
+  for _, v in pairs(PigPens4) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1610,7 +1603,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens5) do
+  for _, v in pairs(PigPens5) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1641,7 +1634,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens6) do
+  for _, v in pairs(PigPens6) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1672,7 +1665,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens7) do
+  for _, v in pairs(PigPens7) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1703,7 +1696,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens8) do
+  for _, v in pairs(PigPens8) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1734,7 +1727,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens9) do
+  for _, v in pairs(PigPens9) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1765,7 +1758,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens10) do
+  for _, v in pairs(PigPens10) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1796,7 +1789,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens11) do
+  for _, v in pairs(PigPens11) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1827,7 +1820,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens12) do
+  for _, v in pairs(PigPens12) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1858,7 +1851,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens13) do
+  for _, v in pairs(PigPens13) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1889,7 +1882,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens14) do
+  for _, v in pairs(PigPens14) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1920,7 +1913,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens15) do
+  for _, v in pairs(PigPens15) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,
@@ -1951,7 +1944,7 @@ RegisterNetEvent('PigPens', function()
       distance = v.distance,
     })
   end
-  for k, v in pairs(PigPens16) do
+  for _, v in pairs(PigPens16) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
       heading= v.heading,

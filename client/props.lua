@@ -5,26 +5,30 @@ local PigMan = PigFarmer
 local SellerMan = Seller.coords
 local PedModel = Config.PedModel
 local PedHash = Config.PedHash
-local pedcow = CreatePed(1, 0xFCFA9E1E, 434.06, 6472.8, 28.77, 77.31, false, true)
-local pedcow1 = CreatePed(1, 0xFCFA9E1E, 425.61, 6463.31, 28.78, 31.94, false, true)
-local pedcow2 = CreatePed(1, 0xFCFA9E1E, 431.66, 6458.51, 28.75, 0, false, true)
-local pedcow3 = CreatePed(1, 0xFCFA9E1E, 437.68, 6453.88, 28.76, 0, false, true)
-local pedpig1 = CreatePed(1, 0xB11BAB56, 2149.41, 5013.96, 41.39, 223.72, 0, false, true)
-local pedpig2 = CreatePed(1, 0xB11BAB56, 2142.8, 5005.94, 41.35, 226.42, false, true)
-local pedpig3 = CreatePed(1, 0xB11BAB56, 2135.95, 4998.94, 41.41, 199.16, false, true)
-local pedpig4 = CreatePed(1, 0xB11BAB56, 2127.58, 4991.87, 41.49, 245.32, false, true)
-local pedpig5 = CreatePed(1, 0xB11BAB56, 2144.25, 4974.22, 41.45, 33.79, false, true)
-local pedpig6 = CreatePed(1, 0xB11BAB56, 2151.87, 4981.88, 41.41, 41.26, false, true)
-local pedpig7 = CreatePed(1, 0xB11BAB56, 2159.0, 4989.05, 41.35, 49.21, false, true)
-local pedpig8 = CreatePed(1, 0xB11BAB56, 2165.9, 4996.88, 41.31, 358.34, false, true)
-local pedpig9 = CreatePed(1, 0xB11BAB56, 2176.46, 4986.36, 41.31, 8.87, false, true)
-local pedpig10 = CreatePed(1, 0xB11BAB56, 2161.61, 4973.24, 41.35, 250.45, false, true)
-local pedpig11 = CreatePed(1, 0xB11BAB56, 2155.13, 4965.68, 41.5, 205.91, false, true)
-local pedpig12 = CreatePed(1, 0xB11BAB56, 2170.84, 4943.63, 41.26, 34.41, false, true)
-local pedpig13 = CreatePed(1, 0xB11BAB56, 2169.13, 4979.77, 41.31, 208.55, 0, false, true)
-local pedpig14 = CreatePed(1, 0xB11BAB56, 2181.43, 4954.0, 41.33, 123.76, false, true)
-local pedpig15 = CreatePed(1, 0xB11BAB56, 2188.21, 4960.37, 41.32, 359.98, false, true)
-local pedpig16 = CreatePed(1, 0xB11BAB56, 2194.04, 4964.97, 41.31, 65.12, false, true)
+local pedfarmer1
+local pedfarmer2
+local pedfarmer3
+local pedfarmer4
+local pedcow
+local pedcow1
+local pedcow2
+local pedcow3
+local pedpig1
+local pedpig2
+local pedpig3
+local pedpig4
+local pedpig5
+local pedpig6
+local pedpig7
+local pedpig8
+local pedpig9
+local pedpig10
+local pedpig11
+local pedpig12
+local pedpig13
+local pedpig14
+local pedpig15
+local pedpig16
 
 CreateThread(function()
     while (true) do
@@ -48,10 +52,30 @@ CreateThread(function()
     while ( not HasModelLoaded( GetHashKey( PedModel ) ) ) do
         Wait(1)
     end
-    local pedfarmer1 = CreatePed(1, PedHash, PigMan, false, true)
-    local pedfarmer2 = CreatePed(1, PedHash, DairyMan, false, true)
-    local pedfarmer3 = CreatePed(1, PedHash, FoodMan, false, true)
-    local pedfarmer4 = CreatePed(1, PedHash, SellerMan, false, true)
+    pedfarmer1 = CreatePed(1, PedHash, PigMan, false, true)
+    pedfarmer2 = CreatePed(1, PedHash, DairyMan, false, true)
+    pedfarmer3 = CreatePed(1, PedHash, FoodMan, false, true)
+    pedfarmer4 = CreatePed(1, PedHash, SellerMan, false, true)
+    pedcow = CreatePed(1, 0xFCFA9E1E, 434.06, 6472.8, 28.77, 77.31, false, true)
+    pedcow1 = CreatePed(1, 0xFCFA9E1E, 425.61, 6463.31, 28.78, 31.94, false, true)
+    pedcow2 = CreatePed(1, 0xFCFA9E1E, 431.66, 6458.51, 28.75, 0, false, true)
+    pedcow3 = CreatePed(1, 0xFCFA9E1E, 437.68, 6453.88, 28.76, 0, false, true)
+    pedpig1 = CreatePed(1, 0xB11BAB56, 2149.41, 5013.96, 41.39, 223.72, 0, false, true)
+    pedpig2 = CreatePed(1, 0xB11BAB56, 2142.8, 5005.94, 41.35, 226.42, false, true)
+    pedpig3 = CreatePed(1, 0xB11BAB56, 2135.95, 4998.94, 41.41, 199.16, false, true)
+    pedpig4 = CreatePed(1, 0xB11BAB56, 2127.58, 4991.87, 41.49, 245.32, false, true)
+    pedpig5 = CreatePed(1, 0xB11BAB56, 2144.25, 4974.22, 41.45, 33.79, false, true)
+    pedpig6 = CreatePed(1, 0xB11BAB56, 2151.87, 4981.88, 41.41, 41.26, false, true)
+    pedpig7 = CreatePed(1, 0xB11BAB56, 2159.0, 4989.05, 41.35, 49.21, false, true)
+    pedpig8 = CreatePed(1, 0xB11BAB56, 2165.9, 4996.88, 41.31, 358.34, false, true)
+    pedpig9 = CreatePed(1, 0xB11BAB56, 2176.46, 4986.36, 41.31, 8.87, false, true)
+    pedpig10 = CreatePed(1, 0xB11BAB56, 2161.61, 4973.24, 41.35, 250.45, false, true)
+    pedpig11 = CreatePed(1, 0xB11BAB56, 2155.13, 4965.68, 41.5, 205.91, false, true)
+    pedpig12 = CreatePed(1, 0xB11BAB56, 2170.84, 4943.63, 41.26, 34.41, false, true)
+    pedpig13 = CreatePed(1, 0xB11BAB56, 2169.13, 4979.77, 41.31, 208.55, 0, false, true)
+    pedpig14 = CreatePed(1, 0xB11BAB56, 2181.43, 4954.0, 41.33, 123.76, false, true)
+    pedpig15 = CreatePed(1, 0xB11BAB56, 2188.21, 4960.37, 41.32, 359.98, false, true)
+    pedpig16 = CreatePed(1, 0xB11BAB56, 2194.04, 4964.97, 41.31, 65.12, false, true)
     SetEntityInvincible(pedfarmer1, true)
     SetBlockingOfNonTemporaryEvents(pedfarmer1, true)
     FreezeEntityPosition(pedfarmer1, true)

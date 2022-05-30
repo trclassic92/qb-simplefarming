@@ -1,6 +1,6 @@
 if Config.UseBlips then
   CreateThread(function()
-    FPBlip = AddBlipForCoord(FoodProcessor.coords)
+    local FPBlip = AddBlipForCoord(FoodProcessor.coords)
     SetBlipSprite (FPBlip, FoodProcessor.SetBlipSprite)
     SetBlipDisplay(FPBlip, FoodProcessor.SetBlipDisplay)
     SetBlipScale  (FPBlip, FoodProcessor.SetBlipScale)
@@ -12,7 +12,7 @@ if Config.UseBlips then
   end)
 
   CreateThread(function()
-    DPBLIP = AddBlipForCoord(DairyProcessor.coords)
+    local DPBLIP = AddBlipForCoord(DairyProcessor.coords)
     SetBlipSprite (DPBLIP, DairyProcessor.SetBlipSprite)
     SetBlipDisplay(DPBLIP, DairyProcessor.SetBlipDisplay)
     SetBlipScale  (DPBLIP, DairyProcessor.SetBlipScale)
@@ -24,7 +24,7 @@ if Config.UseBlips then
   end)
 
   CreateThread(function()
-    SFBLIP = AddBlipForCoord(Seller.coords)
+    local SFBLIP = AddBlipForCoord(Seller.coords)
     SetBlipSprite (SFBLIP, Seller.SetBlipSprite)
     SetBlipDisplay(SFBLIP, Seller.SetBlipDisplay)
     SetBlipScale  (SFBLIP, Seller.SetBlipScale)

@@ -733,7 +733,7 @@ end)
 
 --- Useable Items
 
-QBCore.Functions.CreateUseableItem("apple", function(source, item)
+QBCore.Functions.CreateUseableItem("apple", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -741,7 +741,7 @@ QBCore.Functions.CreateUseableItem("apple", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("apple_juice", function(source, item)
+QBCore.Functions.CreateUseableItem("apple_juice", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -749,7 +749,7 @@ QBCore.Functions.CreateUseableItem("apple_juice", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("beef", function(source, item)
+QBCore.Functions.CreateUseableItem("beef", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -757,7 +757,7 @@ QBCore.Functions.CreateUseableItem("beef", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("milk", function(source, item)
+QBCore.Functions.CreateUseableItem("milk", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -765,7 +765,7 @@ QBCore.Functions.CreateUseableItem("milk", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("slicedpie", function(source, item)
+QBCore.Functions.CreateUseableItem("slicedpie", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -773,7 +773,7 @@ QBCore.Functions.CreateUseableItem("slicedpie", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("corncob", function(source, item)
+QBCore.Functions.CreateUseableItem("corncob", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -781,7 +781,7 @@ QBCore.Functions.CreateUseableItem("corncob", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("canofcorn", function(source, item)
+QBCore.Functions.CreateUseableItem("canofcorn", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -789,7 +789,7 @@ QBCore.Functions.CreateUseableItem("canofcorn", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("grapes", function(source, item)
+QBCore.Functions.CreateUseableItem("grapes", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -797,7 +797,7 @@ QBCore.Functions.CreateUseableItem("grapes", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("grapejuice", function(source, item)
+QBCore.Functions.CreateUseableItem("grapejuice", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -805,7 +805,7 @@ QBCore.Functions.CreateUseableItem("grapejuice", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("greenpepper", function(source, item)
+QBCore.Functions.CreateUseableItem("greenpepper", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -813,7 +813,7 @@ QBCore.Functions.CreateUseableItem("greenpepper", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("chillypepper", function(source, item)
+QBCore.Functions.CreateUseableItem("chillypepper", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -821,7 +821,7 @@ QBCore.Functions.CreateUseableItem("chillypepper", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("hotsauce", function(source, item)
+QBCore.Functions.CreateUseableItem("hotsauce", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -829,7 +829,7 @@ QBCore.Functions.CreateUseableItem("hotsauce", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("tomato", function(source, item)
+QBCore.Functions.CreateUseableItem("tomato", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -837,7 +837,7 @@ QBCore.Functions.CreateUseableItem("tomato", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("tomatopaste", function(source, item)
+QBCore.Functions.CreateUseableItem("tomatopaste", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -845,7 +845,7 @@ QBCore.Functions.CreateUseableItem("tomatopaste", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("cooked_bacon", function(source, item)
+QBCore.Functions.CreateUseableItem("cooked_bacon", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -853,7 +853,7 @@ QBCore.Functions.CreateUseableItem("cooked_bacon", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("cooked_sausage", function(source, item)
+QBCore.Functions.CreateUseableItem("cooked_sausage", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -861,7 +861,7 @@ QBCore.Functions.CreateUseableItem("cooked_sausage", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("cooked_pork", function(source, item)
+QBCore.Functions.CreateUseableItem("cooked_pork", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then
@@ -869,7 +869,7 @@ QBCore.Functions.CreateUseableItem("cooked_pork", function(source, item)
     end
 end)
 
-QBCore.Functions.CreateUseableItem("cooked_ham", function(source, item)
+QBCore.Functions.CreateUseableItem("cooked_ham", function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
 	  if Player.Functions.RemoveItem(item.name, 1, item.slot) then

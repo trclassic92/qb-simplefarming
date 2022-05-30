@@ -1,5 +1,4 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-local inZone = false
 
 ----------------------------------- Apple Stuff -----------------------------------
 
@@ -487,7 +486,6 @@ end
 
 RegisterNetEvent('qb-simplefarming:pumpkinfarming', function()
   local playerPed = PlayerPedId()
-  local coords = GetEntityCoords(playerPed)
   TaskStartScenarioInPlace(playerPed, 'world_human_gardener_plant', 0, false)
   QBCore.Functions.Progressbar("picking_pumpkins", Config.Alerts['picking_pumpkins'], 3000, false, true, {
       disableMovement = true,
@@ -2013,7 +2011,7 @@ exports['qb-target']:AddBoxZone("piggyfarmer", PigFarmerTargetZone, 0.6, 0.8, {
 	distance = 1.0
 })
 
-RegisterNetEvent('qb-simplefarming:menuprocessor', function(data)
+RegisterNetEvent('qb-simplefarming:menuprocessor', function()
   local Processor = {
     {
       header = "Farming Processor",

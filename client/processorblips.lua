@@ -1,5 +1,3 @@
-local QBCore = exports['qb-core']:GetCoreObject()
-
 if Config.UseBlips then
   CreateThread(function()
     FPBlip = AddBlipForCoord(FoodProcessor.coords)

@@ -10,6 +10,9 @@ International License][cc-by-nc-sa].
 # qb-simplefarming
 Farming script for QBCore
 
+## Install Video
+https://youtu.be/StGCE_eDFUU
+
 Included
 - Easy to use config
 - The ability to change notification language

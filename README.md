@@ -95,7 +95,7 @@ Included
 ![Preview Screenshot](https://forum.cfx.re/uploads/default/original/4X/a/f/6/af673ae283e9baaddbfb9c10460b1924fa22ccde.jpeg)
 
 ## Discord
-- [Join Discord](https://discord.gg/zRCdhENsHG)
+- [Join Discord](https://discord.gg/vTCUWCnQSD)
 
 ## Support
 - [Ko-fi Link](https://ko-fi.com/trclassic)

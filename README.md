@@ -89,7 +89,7 @@ Included
 ## QB-Target and menu is all done within the config of qb-simplefarming/config.lua
 
 ## Preview's
-![Video](https://youtu.be/b4ou66Z1Nco)
+- [Video](https://youtu.be/b4ou66Z1Nco)
 ![Preview Screenshot](https://i.imgur.com/NOHlypk.jpeg)
 ![Preview Screenshot](https://i.imgur.com/rZJbpVo.jpeg)
 ![Preview Screenshot](https://i.imgur.com/6kPzfKv.jpeg)

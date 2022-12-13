@@ -184,7 +184,7 @@ RegisterServerEvent('qb-simplefarming:getcowbucket', function()
     TriggerClientEvent('QBCore:Notify', source, "Grabbed A Bucket")
 end)
 
-RegisterServerEvent('qb-simplefarming:diarymilk', function()
+RegisterServerEvent('qb-simplefarming:dairymilk', function()
     local source = source
     local Player = QBCore.Functions.GetPlayer(tonumber(source))
     local milkbucket = Player.Functions.GetItemByName('milkbucket')

@@ -144,10 +144,10 @@ if Config.UseBlips then
       BarnFarming:onPlayerInOut(function(isPointInside)
         if isPointInside then
           inZone = true
-          TriggerEvent('AnimalFraming')
-          TriggerEvent('AnimalFraming2')
-          TriggerEvent('AnimalFraming3')
-          TriggerEvent('AnimalFraming4')
+          TriggerEvent('AnimalFarming')
+          TriggerEvent('AnimalFarming2')
+          TriggerEvent('AnimalFarming3')
+          TriggerEvent('AnimalFarming4')
         else
           for _, v in pairs(CowFarming1) do
             exports['qb-target']:RemoveZone(v.Name)
@@ -182,10 +182,10 @@ else
       BarnFarming:onPlayerInOut(function(isPointInside)
           if isPointInside then
             inZone = true
-            TriggerEvent('AnimalFraming')
-            TriggerEvent('AnimalFraming2')
-            TriggerEvent('AnimalFraming3')
-            TriggerEvent('AnimalFraming4')
+            TriggerEvent('AnimalFarming')
+            TriggerEvent('AnimalFarming2')
+            TriggerEvent('AnimalFarming3')
+            TriggerEvent('AnimalFarming4')
           else
             for _, v in pairs(CowFarming1) do
               exports['qb-target']:RemoveZone(v.Name)
@@ -230,18 +230,18 @@ RegisterNetEvent('qb-simplefarming:beefprocessing', function()
   end)
 end)
 
-RegisterNetEvent('qb-simplefarming:diaryprocessor', function()
+RegisterNetEvent('qb-simplefarming:dairyprocessor', function()
   QBCore.Functions.TriggerCallback('qb-simplefarming:milkbucketfull', function(milkbucket)
     if milkbucket then
       TriggerEvent('animations:client:EmoteCommandStart', {"Clipboard"})
-      QBCore.Functions.Progressbar('diary_processing', Config.Alerts['cow_diaryprocessorbar'], Config.ProcessingTime['milk_tradingtime'] , false, true, { -- Name | Label | Time | useWhileDead | canCancel
+      QBCore.Functions.Progressbar('dairy_processing', Config.Alerts['cow_dairyprocessorbar'], Config.ProcessingTime['milk_tradingtime'] , false, true, { -- Name | Label | Time | useWhileDead | canCancel
       disableMovement = true,
       disableCarMovement = true,
       disableMouse = false,
       disableCombat = true,
     }, {}, {}, {}, function()
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("qb-simplefarming:diarymilk")
+        TriggerServerEvent("qb-simplefarming:dairymilk")
     end, function()
       QBCore.Functions.Notify(Config.Alerts['cancel'], "error")
     end)
@@ -292,7 +292,7 @@ RegisterNetEvent('qb-getcowbucket', function()
   TriggerServerEvent('qb-simplefarming:getcowbucket')
 end)
 
-RegisterNetEvent('AnimalFraming', function()
+RegisterNetEvent('AnimalFarming', function()
   for _, v in pairs(CowFarming1) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
@@ -320,7 +320,7 @@ RegisterNetEvent('AnimalFraming', function()
   end
 end)
 
-RegisterNetEvent('AnimalFraming2', function()
+RegisterNetEvent('AnimalFarming2', function()
   for _, v in pairs(CowFarming2) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
@@ -349,7 +349,7 @@ RegisterNetEvent('AnimalFraming2', function()
 end)
 
 
-RegisterNetEvent('AnimalFraming3', function()
+RegisterNetEvent('AnimalFarming3', function()
   for _, v in pairs(CowFarming3) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
@@ -378,7 +378,7 @@ RegisterNetEvent('AnimalFraming3', function()
 end)
 
 
-RegisterNetEvent('AnimalFraming4', function()
+RegisterNetEvent('AnimalFarming4', function()
   for _, v in pairs(CowFarming4) do
     exports['qb-target']:AddBoxZone(v.Name, vector3(v.Coords.x, v.Coords.y, v.Coords.z), v.length, v.width, {
       name=v.Name,
@@ -517,7 +517,7 @@ RegisterNetEvent('qb-simplefarming:pumpkinpie', function()
   QBCore.Functions.TriggerCallback('qb-simplefarming:pumpkincheck', function(pumpkin)
     if pumpkin then
       TriggerEvent('animations:client:EmoteCommandStart', {"Clipboard"})
-      QBCore.Functions.Progressbar('diary_processing', Config.Alerts['pumpkin_processingbar'], Config.ProcessingTime['pumpkin_smashingtime'] , false, true, {
+      QBCore.Functions.Progressbar('dairy_processing', Config.Alerts['pumpkin_processingbar'], Config.ProcessingTime['pumpkin_smashingtime'] , false, true, {
       disableMovement = true,
       disableCarMovement = true,
       disableMouse = false,
@@ -638,7 +638,7 @@ RegisterNetEvent('qb-simplefarming:makecancorn', function()
   QBCore.Functions.TriggerCallback('qb-simplefarming:corncheck', function(corncob)
     if corncob then
       TriggerEvent('animations:client:EmoteCommandStart', {"Clipboard"})
-      QBCore.Functions.Progressbar('diary_processing', Config.Alerts['corn_progressbar'], Config.ProcessingTime['pumpkin_smashingtime'] , false, true, {
+      QBCore.Functions.Progressbar('dairy_processing', Config.Alerts['corn_progressbar'], Config.ProcessingTime['pumpkin_smashingtime'] , false, true, {
       disableMovement = true,
       disableCarMovement = true,
       disableMouse = false,
@@ -840,7 +840,7 @@ RegisterNetEvent('qb-simplefarming:makingragu', function()
   QBCore.Functions.TriggerCallback('qb-simplefarming:tomatoescheck', function(tomatoes)
     if tomatoes then
       TriggerEvent('animations:client:EmoteCommandStart', {"Clipboard"})
-      QBCore.Functions.Progressbar('diary_processing', Config.Alerts['tomatoes_processing'], Config.ProcessingTime['tomatoes_processingtime'] , false, true, {
+      QBCore.Functions.Progressbar('dairy_processing', Config.Alerts['tomatoes_processing'], Config.ProcessingTime['tomatoes_processingtime'] , false, true, {
       disableMovement = true,
       disableCarMovement = true,
       disableMouse = false,
@@ -861,7 +861,7 @@ RegisterNetEvent('qb-simplefarming:makingchillysauce', function()
   QBCore.Functions.TriggerCallback('qb-simplefarming:chillycheck', function(hotstuff)
     if hotstuff then
       TriggerEvent('animations:client:EmoteCommandStart', {"Clipboard"})
-      QBCore.Functions.Progressbar('diary_processing', Config.Alerts['chilly_hotsauce'], Config.ProcessingTime['chillypepper_processingtime'] , false, true, {
+      QBCore.Functions.Progressbar('dairy_processing', Config.Alerts['chilly_hotsauce'], Config.ProcessingTime['chillypepper_processingtime'] , false, true, {
       disableMovement = true,
       disableCarMovement = true,
       disableMouse = false,
@@ -882,7 +882,7 @@ RegisterNetEvent('qb-simplefarming:makinggrapejuice', function()
   QBCore.Functions.TriggerCallback('qb-simplefarming:grapecheck', function(grapes)
     if grapes then
       TriggerEvent('animations:client:EmoteCommandStart', {"Clipboard"})
-      QBCore.Functions.Progressbar('diary_processing', Config.Alerts['grape_progressbar'], Config.ProcessingTime['grape_processingtime'] , false, true, {
+      QBCore.Functions.Progressbar('dairy_processing', Config.Alerts['grape_progressbar'], Config.ProcessingTime['grape_processingtime'] , false, true, {
       disableMovement = true,
       disableCarMovement = true,
       disableMouse = false,
@@ -1977,8 +1977,8 @@ RegisterNetEvent('PigPens', function()
   end
 end)
 
-exports['qb-target']:AddBoxZone("diaryfarmer", DairyProcessor.targetZone, 1, 1, {
-	name = "diaryfarmer",
+exports['qb-target']:AddBoxZone("dairyfarmer", DairyProcessor.targetZone, 1, 1, {
+	name = "dairyfarmer",
 	heading = DairyProcessor.targetHeading,
 	debugPoly = false,
 	minZ = DairyProcessor.minZ,
@@ -1987,9 +1987,9 @@ exports['qb-target']:AddBoxZone("diaryfarmer", DairyProcessor.targetZone, 1, 1, 
 	options = {
     {
       type = "client",
-      event = "qb-simplefarming:diaryprocessor",
+      event = "qb-simplefarming:dairyprocessor",
       icon = "fab fa-rocketchat",
-      label = "Talk to diary farmer",
+      label = "Talk to dairy farmer",
     },
 	},
 	distance = 1.0

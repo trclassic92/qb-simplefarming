@@ -670,7 +670,7 @@ RegisterNetEvent('CornField', function()
           type = "client",
           event = "qb-simplefarming:cornfield",
           icon = "fa fa-sign-language",
-          label = "Grather Corn",
+          label = "Gather Corn",
         },
       },
       distance = v.distance,
